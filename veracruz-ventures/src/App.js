@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { positions } from '@material-ui/system';
 import './App.css';
-import Drawer from './pages/Drawer'
+import PermanentDrawerLeft from './pages/Drawer'
 import { onClick } from '@material-ui/system';
 import DashBoard from './pages/Dashboard';
 import DataOverview from './pages/Data';
@@ -18,11 +18,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'block',
   },
 }));
-
-
-
-
-
 
 function App() {
   const classes = useStyles();
@@ -52,7 +47,7 @@ function App() {
     //     </Button>
     //   </Link>
     // </div>
-    <Drawer />
+    <PermanentDrawerLeft />
   );
 };
 
