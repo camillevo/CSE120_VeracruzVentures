@@ -1,26 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import { positions } from '@material-ui/system';
 import './App.css';
+import Drawer from './pages/Drawer'
+import { onClick } from '@material-ui/system';
+import DashBoard from './pages/Dashboard';
+import DataOverview from './pages/Data';
+import Calendar from './pages/Calendar';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/pages/Dashboard' component = {DashBoard}/>  
+        <Route path='/pages/DataOverview' component = {DataOverview}/>
+        <Route path='/pages/Calendar' component = {Calendar}/>
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
