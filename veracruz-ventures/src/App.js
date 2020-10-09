@@ -6,37 +6,39 @@ import { positions } from '@material-ui/system';
 import './App.css';
 import Drawer from './pages/Drawer'
 import { onClick } from '@material-ui/system';
-import DashBoard from './pages/Dashboard';
-import DataOverview from './pages/Data';
-import Calendar from './pages/Calendar';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
-  link:{
-    display: 'block',
-  },
-}));
 
 
+// import BrowseBestPractice from './pages/Browse';
+// import DashBoard from './pages/Dashboard';
+// import DataOverview from './pages/Data';
+// import Calendar from './pages/Calendar';
 
-
-
+const useStyles = makeStyles({
+  container: {
+    display: "flex"
+  }
+});
 
 function App() {
   const classes = useStyles();
   return (
-    // <div>
-    //   <Router>
-    //   <Switch>
-    //     <Route path='/pages/Dashboard' component = {DashBoard}/>  
-    //     <Route path='/pages/Data' component = {DataOverview}/>
-    //     <Route path='/pages/Calendar' component = {Calendar}/>
-    //   </Switch>
-    //   </Router>
+    <div>
+      <Drawer />
+      {/* <Router>
+      <Switch>
+        <Route exact path='/pages/Dashboard' component = {DashBoard}/>  
+        <Route exact path='/pages/Data' component = {DataOverview}/>
+        <Route exact path='/pages/Calendar' component = {Calendar}/>
+        <Route exact path='/pages/Browse' component = {BrowseBestPractice}/>
+      </Switch>
+      </Router> */}
+    </div>
 
-    //   <Link href='/pages/Dashboard' className = {classes.link}>
+    /* //   <Link href='/pages/Dashboard' className = {classes.link}>
     //     <Button variant="contained">
     //       Dashboard
     //     </Button>
@@ -51,9 +53,8 @@ function App() {
     //       Calendar
     //     </Button>
     //   </Link>
-    // </div>
-    <Drawer />
-  );
+    // </div> */
+   );
 };
 
 export default App;

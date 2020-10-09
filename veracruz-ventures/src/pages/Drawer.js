@@ -15,34 +15,39 @@ import SearchIcon from '@material-ui/icons/Search';
 import EventIcon from '@material-ui/icons/Event';
 import DataUsageIcon from '@material-ui/icons/DataUsage';
 import { Link } from '@material-ui/core';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //import Home from './Home';
+
+
+
+import BrowseBestPractice from './Browse';
+import DashBoard from './Dashboard';
+import DataOverview from './Data';
+import Calendar from './Calendar';
 
 const drawerWidth = 260;
 const itemsList = [
     {
       text: "Dashboard",
       icon: <DashboardIcon />,
-      url: "./pages/Home",
+      url: "/pages/Dashboard",
     },
     {
       text: "Data Overview",
       icon: <DataUsageIcon />,
-      url: "/",
-      //onClick: () => history.push("/data")
+      url: "/pages/Data",
     },
     {
       text: "Calendar",
       icon: <EventIcon />,
-      url: "/",
-      //onClick: () => history.push("/calendar")
+      url: "/pages/Calendar",
     },
     {
       text: "Browse Best Practices",
       icon: <SearchIcon />,
-      url: "/",
-      //onClick: () => history.push("/contact")
+      url: "/pages/Browse",
     },
-  ]
+]
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,7 +79,18 @@ export default function PermanentDrawerLeft() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    
+      <div> 
+        <Router>
+        <Switch>
+          <Route exact path='/pages/Dashboard' component = {DashBoard}/>  
+          <Route exact path='/pages/Data' component = {DataOverview}/>
+          <Route exact path='/pages/Calendar' component = {Calendar}/>
+          <Route exact path='/pages/Browse' component = {BrowseBestPractice}/>
+        </Switch>
+        </Router>
+
+        <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
@@ -97,7 +113,7 @@ export default function PermanentDrawerLeft() {
             {itemsList.map((item, index) => {
             const {text, icon, url} = item;
             return (
-                <Link to={item.url}>
+                <Link href={item.url} className = {classes.link}>
                 <ListItem button key={text}>
                     {icon && <ListItemIcon>{icon}</ListItemIcon>}
                     <ListItemText primary={text} />
@@ -107,7 +123,7 @@ export default function PermanentDrawerLeft() {
             })}
         </List>
       </Drawer>
-      <main className={classes.content}>
+      {/* <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -132,7 +148,16 @@ export default function PermanentDrawerLeft() {
           nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
           accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
-      </main>
+      </main> */}
     </div>
+
+    </div>
+
+
+
+
+
+    
   );
 }
+
