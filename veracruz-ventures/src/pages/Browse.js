@@ -6,18 +6,12 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
 import Grid from '@material-ui/core/Grid';
 
-
-const drawerWidth = 260;
-
 const useStyles = makeStyles((theme) => ({
-  toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3),
-    marginLeft: drawerWidth,
   },
-
 }));
 
 const fieldID = [
@@ -29,11 +23,10 @@ const fieldID = [
 
 // indexOf
 
-const BrowseBestPractice = () => {
+const Browse = props => {
     const classes = useStyles();
     return (
      <div className={classes.content}>
-      <div className={classes.toolbar} />
       This is Browse page 
       <Grid container direction={"row"} spacing={5}>
       <Grid item>   
@@ -95,8 +88,7 @@ const BrowseBestPractice = () => {
     );
 };
 
-
-export default BrowseBestPractice;
+export default Browse;
 
 
 

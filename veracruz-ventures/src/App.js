@@ -12,10 +12,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 
-// import BrowseBestPractice from './pages/Browse';
-// import DashBoard from './pages/Dashboard';
-// import DataOverview from './pages/Data';
-// import Calendar from './pages/Calendar';
+import Browse from './pages/Browse';
+import DashBoard from './pages/Dashboard';
+import Data from './pages/Data';
+import Calendar from './pages/Calendar';
+import AppBar from './pages/Appbar';
+
 
 const useStyles = makeStyles({
   container: {
@@ -26,34 +28,18 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
   return (
-    <div>
+    <div className={classes.container}>
+      <Router>
+      {/* <AppBar /> */}
       <Drawer />
-      {/* <Router>
       <Switch>
-        <Route exact path='/pages/Dashboard' component = {DashBoard}/>  
-        <Route exact path='/pages/Data' component = {DataOverview}/>
-        <Route exact path='/pages/Calendar' component = {Calendar}/>
-        <Route exact path='/pages/Browse' component = {BrowseBestPractice}/>
+        <Route exact from="/pages/Dashboard" render={props => <DashBoard {...props} />} />
+        <Route exact path="/pages/Browse" render={props => <Browse {...props} />} />
+        <Route exact path="/pages/Calendar" render={props => <Calendar {...props} />} />
+        <Route exact path="/pages/Data" render={props => <Data {...props} />} />
       </Switch>
-      </Router> */}
+      </Router> 
     </div>
-
-    /* //   <Link href='/pages/Dashboard' className = {classes.link}>
-    //     <Button variant="contained">
-    //       Dashboard
-    //     </Button>
-    //   </Link>
-    //   <Link href='/pages/Data' className = {classes.link}>
-    //     <Button variant="contained">
-    //       Data
-    //     </Button>
-    //   </Link>
-    //   <Link href='/pages/Calendar' className = {classes.link}>
-    //     <Button variant="contained">
-    //       Calendar
-    //     </Button>
-    //   </Link>
-    // </div> */
    );
 };
 
