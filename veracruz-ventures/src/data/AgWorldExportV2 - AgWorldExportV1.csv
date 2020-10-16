@@ -1,0 +1,367 @@
+Farm,Field,Activity Name,Date Due,Start Time,Stop Time,Cost  (Dollars),Total Application Rate (gal/acre),Cumulative Area (acre)
+Merced College Farm,MC01,Compost Application,1/31/2021,,,544.73,100,2.53
+Merced College Farm,MC01,Flood Irrigation - Well,2/1/2021,,,59.5,100,2.53
+Merced College Farm,MC01,Flood Irrigation - Well,3/1/2021,,,59.49,100,2.53
+Merced College Farm,MC01,Flood Irrigation - Well,3/31/2021,,,118.97,100,5.06
+Merced College Farm,MC01,Soil Sampling,1/2/2021,,,58.27,100,2.53
+Merced College Farm,MC02,Compost Application,1/31/2021,,,632.14,100,2.94
+Merced College Farm,MC02,Flood Irrigation - Well,2/1/2021,,,61.03,100,2.94
+Merced College Farm,MC02,Flood Irrigation - Well,3/1/2021,,,61.03,100,2.94
+Merced College Farm,MC02,Flood Irrigation - Well,3/31/2021,,,122.05,100,5.88
+Merced College Farm,MC02,Soil Sampling,1/2/2021,,,67.62,100,2.94
+Merced College Farm,MC03,Compost Application,1/31/2021,,,614.94,100,2.86
+Merced College Farm,MC03,Flood Irrigation - Well,2/1/2021,,,60.73,100,2.86
+Merced College Farm,MC03,Flood Irrigation - Well,3/1/2021,,,60.73,100,2.86
+Merced College Farm,MC03,Flood Irrigation - Well,3/31/2021,,,121.45,100,5.72
+Merced College Farm,MC03,Soil Sampling,1/2/2021,,,65.78,100,2.86
+Merced College Farm,MC04,Compost Application,1/31/2021,,,602.84,100,2.8
+Merced College Farm,MC04,Flood Irrigation - Well,2/1/2021,,,60.51,100,2.8
+Merced College Farm,MC04,Flood Irrigation - Well,3/1/2021,,,60.51,100,2.8
+Merced College Farm,MC04,Flood Irrigation - Well,3/31/2021,,,121.03,100,5.61
+Merced College Farm,MC04,Soil Sampling,1/2/2021,,,64.49,100,2.8
+Merced College Farm,MC05,Baling,3/23/2021,,,64,100,3.2
+Merced College Farm,MC05,Close Drains,1/10/2021,,,16,100,3.2
+Merced College Farm,MC05,Close Drains,2/28/2021,,,16,100,3.2
+Merced College Farm,MC05,Compost Application,10/13/2020,,,688,100,3.2
+Merced College Farm,MC05,Disc with Flat Roller,10/14/2020,,,86.4,0,3.2
+Merced College Farm,MC05,Disc with Ring Roller,4/1/2021,,,80,100,3.2
+Merced College Farm,MC05,Flood Irrigation - Well,10/30/2020,,,62,100,3.2
+Merced College Farm,MC05,Flood Irrigation - Well,11/30/2020,,,62,100,3.2
+Merced College Farm,MC05,Flood Irrigation - Well,1/16/2021,,,62,100,3.2
+Merced College Farm,MC05,Flood Irrigation - Well,2/18/2021,,,62,100,3.2
+Merced College Farm,MC05,Fungicide Application,1/13/2021,,,61.6,0,3.2
+Merced College Farm,MC05,Harrow Bed,3/28/2021,,,300,100,3.2
+Merced College Farm,MC05,Make Flood Irrigation Checks,10/16/2020,,,16,100,3.2
+Merced College Farm,MC05,Open Drains,10/18/2020,,,16,100,3.2
+Merced College Farm,MC05,Open Drains,1/14/2021,,,16,100,3.2
+Merced College Farm,MC05,Planting - Drill - Oats,10/15/2020,,,153.6,100,3.2
+Merced College Farm,MC05,Raking,3/21/2021,,,48,100,3.2
+Merced College Farm,MC05,Soil Sampling,10/12/2020,,,73.6,100,3.2
+Merced College Farm,MC05,Swathing,3/20/2021,,,96,100,3.2
+Merced College Farm,MC06,Baling,3/23/2021,,,36.5,100,1.82
+Merced College Farm,MC06,Close Drains,1/10/2021,,,9.12,100,1.82
+Merced College Farm,MC06,Close Drains,2/28/2021,,,9.12,100,1.82
+Merced College Farm,MC06,Compost Application,10/13/2021,,,392.35,100,1.82
+Merced College Farm,MC06,Disc with Flat Roller,10/14/2021,,,49.27,0,1.82
+Merced College Farm,MC06,Disc with Ring Roller,4/1/2021,,,45.62,100,1.82
+Merced College Farm,MC06,Flood Irrigation - Well,10/30/2020,,,56.84,100,1.82
+Merced College Farm,MC06,Flood Irrigation - Well,11/30/2020,,,56.84,100,1.82
+Merced College Farm,MC06,Flood Irrigation - Well,1/16/2021,,,56.84,100,1.82
+Merced College Farm,MC06,Flood Irrigation - Well,2/18/2021,,,56.84,100,1.82
+Merced College Farm,MC06,Fungicide Application,1/13/2021,,,35.13,0,1.82
+Merced College Farm,MC06,Harrow Bed,3/28/2021,,,300,100,1.82
+Merced College Farm,MC06,Make Flood Irrigation Checks,10/16/2020,,,9.12,100,1.82
+Merced College Farm,MC06,Open Drains,10/18/2020,,,9.12,100,1.82
+Merced College Farm,MC06,Open Drains,1/14/2021,,,9.12,100,1.82
+Merced College Farm,MC06,Planting - Drill - Oats,10/15/2020,,,87.59,100,1.82
+Merced College Farm,MC06,Raking,3/21/2021,,,27.37,100,1.82
+Merced College Farm,MC06,Soil Sampling,10/12/2021,,,41.97,100,1.82
+Merced College Farm,MC06,Swathing,3/20/2021,,,54.75,100,1.82
+Merced College Farm,MC07a,Compost Application,1/31/2021,,,"1,413.43",100,6.57
+Merced College Farm,MC07a,Flood Irrigation - Well,2/1/2021,,,74.65,100,6.57
+Merced College Farm,MC07a,Flood Irrigation - Well,3/1/2021,,,74.65,100,6.57
+Merced College Farm,MC07a,Flood Irrigation - Well,3/31/2021,,,149.31,100,13.15
+Merced College Farm,MC07a,Soil Sampling,1/2/2021,,,151.2,100,6.57
+Merced College Farm,MC07b,Compost Application,1/31/2021,,,477.32,100,2.22
+Merced College Farm,MC07b,Flood Irrigation - Well,2/1/2021,,,58.33,100,2.22
+Merced College Farm,MC07b,Flood Irrigation - Well,3/1/2021,,,58.33,100,2.22
+Merced College Farm,MC07b,Flood Irrigation - Well,3/31/2021,,,116.65,100,4.44
+Merced College Farm,MC07b,Soil Sampling,1/2/2021,,,51.06,100,2.22
+Merced College Farm,MC08,Compost Application,1/31/2021,,,"2,084.45",100,9.7
+Merced College Farm,MC08,Flood Irrigation - Well,2/1/2021,,,86.36,100,9.7
+Merced College Farm,MC08,Flood Irrigation - Well,3/1/2021,,,86.36,100,9.7
+Merced College Farm,MC08,Flood Irrigation - Well,3/31/2021,,,172.71,100,19.39
+Merced College Farm,MC08,Soil Sampling,1/2/2021,,,222.99,100,9.7
+Merced College Farm,MC09,Compost Application,1/31/2021,,,"2,314.06",100,10.76
+Merced College Farm,MC09,Flood Irrigation - Well,2/1/2021,,,90.36,100,10.76
+Merced College Farm,MC09,Flood Irrigation - Well,3/1/2021,,,90.36,100,10.76
+Merced College Farm,MC09,Flood Irrigation - Well,3/31/2021,,,180.72,100,21.53
+Merced College Farm,MC09,Soil Sampling,1/2/2021,,,247.55,100,10.76
+Merced College Farm,MC10,Planting - Drill - Oats,10/15/2020,,,331.36,100,6.9
+Merced College Farm,MC10,Make Flood Irrigation Checks,10/16/2020,,,34.52,100,6.9
+Merced College Farm,MC10,Open Drains,10/18/2020,,,34.52,100,6.9
+Merced College Farm,MC10,Flood Irrigation - Well,10/30/2020,,,75.89,100,6.9
+Merced College Farm,MC10,Flood Irrigation - Well,11/30/2020,,,75.89,100,6.9
+Merced College Farm,MC10,Close Drains,1/10/2021,,,34.52,100,6.9
+Merced College Farm,MC10,Fungicide Application,1/13/2021,,,132.89,0,6.9
+Merced College Farm,MC10,Open Drains,1/14/2021,,,34.52,100,6.9
+Merced College Farm,MC10,Flood Irrigation - Well,1/16/2021,,,75.89,100,6.9
+Merced College Farm,MC10,Flood Irrigation - Well,2/18/2021,,,75.89,100,6.9
+Merced College Farm,MC10,Close Drains,2/28/2021,,,34.52,100,6.9
+Merced College Farm,MC10,Swathing,3/20/2021,,,207.1,100,6.9
+Merced College Farm,MC10,Raking,3/21/2021,,,103.55,100,6.9
+Merced College Farm,MC10,Baling,3/23/2021,,,138.07,100,6.9
+Merced College Farm,MC10,Harrow Bed,3/28/2021,,,300,100,6.9
+Merced College Farm,MC10,Chisel,4/1/2021,,,310.65,0,6.9
+Merced College Farm,MC10,Disc with Ring Roller,4/1/2021,,,172.58,100,6.9
+Merced College Farm,MC10,Optimizer- Heavy Duty,4/2/2021,,,310.65,0,6.9
+Merced College Farm,MC10,Tri-Plane,4/3/2021,,,138.07,0,6.9
+Merced College Farm,MC10,Potash Application,4/4/2021,,,869.82,0,6.9
+Merced College Farm,MC10,Chicken Manure Application,4/5/2021,,,"2,071.00",0,6.9
+Merced College Farm,MC10,Performer- Heavy Duty,4/6/2021,,,276.13,0,6.9
+Merced College Farm,MC10,Pre-Irrigation Furrow,6/14/2021,,,200,0,6.9
+Merced College Farm,MC10,Lilliston- 1st Pass,8/23/2021,,,138.07,0,6.9
+Merced College Farm,MC10,Lilliston- 2nd Pass,8/28/2021,,,138.07,0,6.9
+Merced College Farm,MC10,Planting Corn,8/29/2021,,,"1,863.90",100,6.9
+Merced College Farm,MC10,Performer- Cultivation 1st Pass,9/27/2021,,,151.87,0,6.9
+Merced College Farm,MC10,Soil Sampling,10/12/2021,,,158.78,100,6.9
+Merced College Farm,MC10,Compost Application,10/13/2021,,,"1,484.21",100,6.9
+Merced College Farm,MC10,Disc with Flat Roller,10/14/2021,,,186.39,0,6.9
+Merced College Farm,MC10,Performer- Cultivation 2nd Pass,10/27/2021,,,151.87,0,6.9
+Merced College Farm,MC10,VR- Side Dress,11/11/2021,,,"1,035.50",0,6.9
+Merced College Farm,MC10,Performer- Cultivation 3rd Pass,11/26/2021,,,151.87,0,6.9
+Merced College Farm,MC10,Furrow Irrigation,11/27/2021,,,160,0,6.9
+Merced College Farm,MC10,Corn Harvest,3/21/2022,,,"1,035.50",0,6.9
+Merced College Farm,MC10,Discing,3/22/2022,,,186.39,0,6.9
+Merced College Farm,MC11,Baling,3/23/2021,,,230.17,100,11.51
+Merced College Farm,MC11,Chicken Manure Application,4/5/2021,,,"3,452.61",0,11.51
+Merced College Farm,MC11,Chisel,4/1/2021,,,517.89,0,11.51
+Merced College Farm,MC11,Close Drains,1/10/2021,,,57.54,100,11.51
+Merced College Farm,MC11,Close Drains,2/28/2021,,,57.54,100,11.51
+Merced College Farm,MC11,Compost Application,10/13/2021,,,"2,474.37",100,11.51
+Merced College Farm,MC11,Corn Harvest,3/21/2022,,,"1,726.30",0,11.51
+Merced College Farm,MC11,Discing,3/22/2022,,,310.73,0,11.51
+Merced College Farm,MC11,Disc with Flat Roller,10/14/2021,,,310.73,0,11.51
+Merced College Farm,MC11,Disc with Ring Roller,4/1/2021,,,287.72,100,11.51
+Merced College Farm,MC11,Flood Irrigation - Well,10/30/2020,,,93.16,100,11.51
+Merced College Farm,MC11,Flood Irrigation - Well,11/30/2020,,,93.16,100,11.51
+Merced College Farm,MC11,Flood Irrigation - Well,1/16/2021,,,93.16,100,11.51
+Merced College Farm,MC11,Flood Irrigation - Well,2/18/2021,,,93.16,100,11.51
+Merced College Farm,MC11,Fungicide Application,1/13/2021,,,221.54,0,11.51
+Merced College Farm,MC11,Furrow Irrigation,11/27/2021,,,160,0,11.51
+Merced College Farm,MC11,Harrow Bed,3/28/2021,,,300,100,11.51
+Merced College Farm,MC11,Lilliston- 1st Pass,8/23/2021,,,230.17,0,11.51
+Merced College Farm,MC11,Lilliston- 2nd Pass,8/28/2021,,,230.17,0,11.51
+Merced College Farm,MC11,Make Flood Irrigation Checks,10/16/2020,,,57.54,100,11.51
+Merced College Farm,MC11,Open Drains,10/18/2020,,,57.54,100,11.51
+Merced College Farm,MC11,Open Drains,1/14/2021,,,57.54,100,11.51
+Merced College Farm,MC11,Optimizer- Heavy Duty,4/2/2021,,,517.89,0,11.51
+Merced College Farm,MC11,Performer- Cultivation 1st Pass,9/27/2021,,,253.19,0,11.51
+Merced College Farm,MC11,Performer- Cultivation 2nd Pass,10/27/2021,,,253.19,0,11.51
+Merced College Farm,MC11,Performer- Cultivation 3rd Pass,11/26/2021,,,253.19,0,11.51
+Merced College Farm,MC11,Performer- Heavy Duty,4/6/2021,,,460.35,0,11.51
+Merced College Farm,MC11,Planting Corn,8/29/2021,,,"3,107.35",100,11.51
+Merced College Farm,MC11,Planting - Drill - Oats,10/15/2020,,,552.42,100,11.51
+Merced College Farm,MC11,Potash Application,4/4/2021,,,"1,450.10",0,11.51
+Merced College Farm,MC11,Pre-Irrigation Furrow,6/14/2021,,,200,0,11.51
+Merced College Farm,MC11,Raking,3/21/2021,,,172.63,100,11.51
+Merced College Farm,MC11,Soil Sampling,10/12/2021,,,264.7,100,11.51
+Merced College Farm,MC11,Swathing,3/20/2021,,,345.26,100,11.51
+Merced College Farm,MC11,Tri-Plane,4/3/2021,,,230.17,0,11.51
+Merced College Farm,MC11,VR- Side Dress,11/11/2021,,,"1,726.30",0,11.51
+Merced College Farm,MC12,Baling,3/23/2021,,,47.8,100,2.39
+Merced College Farm,MC12,Close Drains,1/10/2021,,,11.95,100,2.39
+Merced College Farm,MC12,Close Drains,2/28/2021,,,11.95,100,2.39
+Merced College Farm,MC12,Compost Application,10/13/2021,,,513.85,100,2.39
+Merced College Farm,MC12,Disc with Flat Roller,10/14/2021,,,64.53,0,2.39
+Merced College Farm,MC12,Disc with Ring Roller,4/1/2021,,,59.75,100,2.39
+Merced College Farm,MC12,Flood Irrigation - Well,10/30/2020,,,58.96,100,2.39
+Merced College Farm,MC12,Flood Irrigation - Well,11/30/2020,,,58.96,100,2.39
+Merced College Farm,MC12,Flood Irrigation - Well,1/16/2021,,,58.96,100,2.39
+Merced College Farm,MC12,Flood Irrigation - Well,2/18/2021,,,58.96,100,2.39
+Merced College Farm,MC12,Fungicide Application,1/13/2021,,,46.01,0,2.39
+Merced College Farm,MC12,Harrow Bed,3/28/2021,,,300,100,2.39
+Merced College Farm,MC12,Make Flood Irrigation Checks,10/16/2020,,,11.95,100,2.39
+Merced College Farm,MC12,Open Drains,10/18/2020,,,11.95,100,2.39
+Merced College Farm,MC12,Open Drains,1/14/2021,,,11.95,100,2.39
+Merced College Farm,MC12,Planting - Drill - Oats,10/15/2020,,,114.72,100,2.39
+Merced College Farm,MC12,Raking,3/21/2021,,,35.85,100,2.39
+Merced College Farm,MC12,Soil Sampling,10/12/2021,,,54.97,100,2.39
+Merced College Farm,MC12,Swathing,3/20/2021,,,71.7,100,2.39
+Merced College Farm,MC13,Baling,3/23/2021,,,62.98,100,3.15
+Merced College Farm,MC13,Chicken Manure Application,4/4/2021,,,944.69,0,3.15
+Merced College Farm,MC13,Close Drains,1/10/2021,,,15.74,100,3.15
+Merced College Farm,MC13,Close Drains,2/28/2021,,,15.74,100,3.15
+Merced College Farm,MC13,Compost Application,4/4/2021,,,944.69,0,3.15
+Merced College Farm,MC13,Compost Application,10/13/2021,,,677.03,100,3.15
+Merced College Farm,MC13,Discing,1/22/2022,,,85.02,0,3.15
+Merced College Farm,MC13,Disc with Flat Roller,10/14/2021,,,85.02,0,3.15
+Merced College Farm,MC13,Disc with Ring Roller,4/1/2021,,,78.72,100,3.15
+Merced College Farm,MC13,Drip Irrigation,9/21/2021,,,300,0,3.15
+Merced College Farm,MC13,Flood Irrigation - Well,10/30/2020,,,61.81,100,3.15
+Merced College Farm,MC13,Flood Irrigation - Well,11/30/2020,,,61.81,100,3.15
+Merced College Farm,MC13,Flood Irrigation - Well,1/16/2021,,,61.81,100,3.15
+Merced College Farm,MC13,Flood Irrigation - Well,2/18/2021,,,61.81,100,3.15
+Merced College Farm,MC13,Fungicide Application,1/13/2021,,,60.62,0,3.15
+Merced College Farm,MC13,Fungicide Application,1/9/2022,,,60.62,0,3.15
+Merced College Farm,MC13,Gypsum Application,4/4/2021,,,267.66,0,3.15
+Merced College Farm,MC13,Harrow Bed,3/28/2021,,,300,100,3.15
+Merced College Farm,MC13,Harvest,1/20/2022,,,"1,574.49",0,3.15
+Merced College Farm,MC13,In Furrow Chisel,4/1/2021,,,141.7,0,3.15
+Merced College Farm,MC13,Make Flood Irrigation Checks,10/16/2020,,,15.74,100,3.15
+Merced College Farm,MC13,Open Drains,10/18/2020,,,15.74,100,3.15
+Merced College Farm,MC13,Open Drains,1/14/2021,,,15.74,100,3.15
+Merced College Farm,MC13,Optimizer- Heavy Duty,4/2/2021,,,141.7,0,3.15
+Merced College Farm,MC13,Optimizer- Heavy Duty,4/5/2021,,,141.7,0,3.15
+Merced College Farm,MC13,Performer- Cultivation 1st Pass,9/10/2021,,,69.28,0,3.15
+Merced College Farm,MC13,Performer- Cultivation 2nd Pass,9/20/2021,,,69.28,0,3.15
+Merced College Farm,MC13,Performer- Heavy Duty +  Side Dress,8/13/2021,,,551.07,0,3.15
+Merced College Farm,MC13,Performer- Light Duty,8/28/2021,,,362.13,0,3.15
+Merced College Farm,MC13,Planting - Drill - Oats,10/15/2020,,,151.15,100,3.15
+Merced College Farm,MC13,Potash Application,4/4/2021,,,396.77,0,3.15
+Merced College Farm,MC13,Rake Ends,1/19/2022,,,31.49,0,3.15
+Merced College Farm,MC13,Raking,3/21/2021,,,47.23,100,3.15
+Merced College Farm,MC13,Ring Roller,8/29/2021,,,47.23,0,3.15
+Merced College Farm,MC13,Soil Sampling,10/12/2021,,,72.43,100,3.15
+Merced College Farm,MC13,Sulfur Application,4/4/2021,,,258.22,0,3.15
+Merced College Farm,MC13,Swathing,3/20/2021,,,94.47,100,3.15
+Merced College Farm,MC13,Tomato Transplanting,8/31/2021,,,846.94,400,3.15
+Merced College Farm,MC13,Tri-Plane,4/3/2021,,,62.98,0,3.15
+Merced College Farm,MC13,Weeding Crew- 1st Pass,10/11/2021,,,472.35,0,3.15
+Merced College Farm,MC13,Weeding Crew- 2nd Pass,11/10/2021,,,472.35,0,3.15
+Merced College Farm,MC14,Baling,3/23/2021,,,84.39,100,4.22
+Merced College Farm,MC14,Close Drains,1/10/2021,,,21.1,100,4.22
+Merced College Farm,MC14,Close Drains,2/28/2021,,,21.1,100,4.22
+Merced College Farm,MC14,Compost Application,10/13/2021,,,907.23,100,4.22
+Merced College Farm,MC14,Disc with Flat Roller,10/14/2021,,,113.93,0,4.22
+Merced College Farm,MC14,Disc with Ring Roller,4/1/2021,,,105.49,100,4.22
+Merced College Farm,MC14,Flood Irrigation - Well,10/30/2020,,,65.82,100,4.22
+Merced College Farm,MC14,Flood Irrigation - Well,11/30/2020,,,65.82,100,4.22
+Merced College Farm,MC14,Flood Irrigation - Well,1/16/2021,,,65.82,100,4.22
+Merced College Farm,MC14,Flood Irrigation - Well,2/18/2021,,,65.82,100,4.22
+Merced College Farm,MC14,Fungicide Application,1/13/2021,,,81.23,0,4.22
+Merced College Farm,MC14,Harrow Bed,3/28/2021,,,300,100,4.22
+Merced College Farm,MC14,Make Flood Irrigation Checks,10/16/2020,,,21.1,100,4.22
+Merced College Farm,MC14,Open Drains,10/18/2020,,,21.1,100,4.22
+Merced College Farm,MC14,Open Drains,1/14/2021,,,21.1,100,4.22
+Merced College Farm,MC14,Planting - Drill - Oats,10/15/2020,,,202.54,100,4.22
+Merced College Farm,MC14,Raking,3/21/2021,,,63.29,100,4.22
+Merced College Farm,MC14,Soil Sampling,10/12/2021,,,97.05,100,4.22
+Merced College Farm,MC14,Swathing,3/20/2021,,,126.59,100,4.22
+Merced College Farm,MC15,Baling,3/23/2021,,,133.6,100,6.68
+Merced College Farm,MC15,Close Drains,1/10/2021,,,33.4,100,6.68
+Merced College Farm,MC15,Close Drains,2/28/2021,,,33.4,100,6.68
+Merced College Farm,MC15,Compost Application,10/13/2021,,,"1,436.24",100,6.68
+Merced College Farm,MC15,Disc with Flat Roller,10/14/2021,,,180.36,0,6.68
+Merced College Farm,MC15,Disc with Ring Roller,4/1/2021,,,167,100,6.68
+Merced College Farm,MC15,Flood Irrigation - Well,10/30/2020,,,75.05,100,6.68
+Merced College Farm,MC15,Flood Irrigation - Well,11/30/2020,,,75.05,100,6.68
+Merced College Farm,MC15,Flood Irrigation - Well,1/16/2021,,,75.05,100,6.68
+Merced College Farm,MC15,Flood Irrigation - Well,2/18/2021,,,75.05,100,6.68
+Merced College Farm,MC15,Fungicide Application,1/13/2021,,,128.59,0,6.68
+Merced College Farm,MC15,Harrow Bed,3/28/2021,,,300,100,6.68
+Merced College Farm,MC15,Make Flood Irrigation Checks,10/16/2020,,,33.4,100,6.68
+Merced College Farm,MC15,Open Drains,10/18/2020,,,33.4,100,6.68
+Merced College Farm,MC15,Open Drains,1/14/2021,,,33.4,100,6.68
+Merced College Farm,MC15,Planting - Drill - Oats,10/15/2020,,,320.65,100,6.68
+Merced College Farm,MC15,Raking,3/21/2021,,,100.2,100,6.68
+Merced College Farm,MC15,Soil Sampling,10/12/2021,,,153.64,100,6.68
+Merced College Farm,MC15,Swathing,3/20/2021,,,200.41,100,6.68
+Merced College Farm,MC16,Baling,3/23/2021,,,127.45,100,6.37
+Merced College Farm,MC16,Close Drains,1/10/2021,,,31.86,100,6.37
+Merced College Farm,MC16,Close Drains,2/28/2021,,,31.86,100,6.37
+Merced College Farm,MC16,Compost Application,10/13/2021,,,"1,370.09",100,6.37
+Merced College Farm,MC16,Disc with Flat Roller,10/14/2021,,,172.06,0,6.37
+Merced College Farm,MC16,Disc with Ring Roller,4/1/2021,,,159.31,100,6.37
+Merced College Farm,MC16,Flood Irrigation - Well,10/30/2020,,,73.9,100,6.37
+Merced College Farm,MC16,Flood Irrigation - Well,11/30/2020,,,73.9,100,6.37
+Merced College Farm,MC16,Flood Irrigation - Well,1/16/2021,,,73.9,100,6.37
+Merced College Farm,MC16,Flood Irrigation - Well,2/18/2021,,,73.9,100,6.37
+Merced College Farm,MC16,Fungicide Application,1/13/2021,,,122.67,0,6.37
+Merced College Farm,MC16,Harrow Bed,3/28/2021,,,300,100,6.37
+Merced College Farm,MC16,Make Flood Irrigation Checks,10/16/2020,,,31.86,100,6.37
+Merced College Farm,MC16,Open Drains,10/18/2020,,,31.86,100,6.37
+Merced College Farm,MC16,Open Drains,1/14/2021,,,31.86,100,6.37
+Merced College Farm,MC16,Planting - Drill - Oats,10/15/2020,,,305.88,100,6.37
+Merced College Farm,MC16,Raking,3/21/2021,,,95.59,100,6.37
+Merced College Farm,MC16,Soil Sampling,10/12/2021,,,146.57,100,6.37
+Merced College Farm,MC16,Swathing,3/20/2021,,,191.18,100,6.37
+Merced College Farm,MC17,Baling,3/23/2021,,,131.53,100,6.58
+Merced College Farm,MC17,Close Drains,1/10/2021,,,32.88,100,6.58
+Merced College Farm,MC17,Close Drains,2/28/2021,,,32.88,100,6.58
+Merced College Farm,MC17,Compost Application,10/13/2021,,,"1,413.99",100,6.58
+Merced College Farm,MC17,Disc with Flat Roller,10/14/2021,,,177.57,0,6.58
+Merced College Farm,MC17,Disc with Ring Roller,4/1/2021,,,164.42,100,6.58
+Merced College Farm,MC17,Flood Irrigation - Well,10/30/2020,,,74.66,100,6.58
+Merced College Farm,MC17,Flood Irrigation - Well,11/30/2020,,,74.66,100,6.58
+Merced College Farm,MC17,Flood Irrigation - Well,1/16/2021,,,74.66,100,6.58
+Merced College Farm,MC17,Flood Irrigation - Well,2/18/2021,,,74.66,100,6.58
+Merced College Farm,MC17,Fungicide Application,1/13/2021,,,126.6,0,6.58
+Merced College Farm,MC17,Harrow Bed,3/28/2021,,,300,100,6.58
+Merced College Farm,MC17,Make Flood Irrigation Checks,10/16/2020,,,32.88,100,6.58
+Merced College Farm,MC17,Open Drains,10/18/2020,,,32.88,100,6.58
+Merced College Farm,MC17,Open Drains,1/14/2021,,,32.88,100,6.58
+Merced College Farm,MC17,Planting - Drill - Oats,10/15/2020,,,315.68,100,6.58
+Merced College Farm,MC17,Raking,3/21/2021,,,98.65,100,6.58
+Merced College Farm,MC17,Soil Sampling,10/12/2021,,,151.26,100,6.58
+Merced College Farm,MC17,Swathing,3/20/2021,,,197.3,100,6.58
+Merced College Farm,MC18,Close Drains,1/10/2021,,,8.84,100,1.77
+Merced College Farm,MC18,Close Drains,2/28/2021,,,8.84,100,1.77
+Merced College Farm,MC18,Compost Application,10/13/2021,,,380.25,100,1.77
+Merced College Farm,MC18,Disc with Flat Roller,10/14/2021,,,47.75,0,1.77
+Merced College Farm,MC18,Disc with Ring Roller,4/15/2021,,,44.22,100,1.77
+Merced College Farm,MC18,Flood Irrigation - Well,10/30/2020,,,56.63,100,1.77
+Merced College Farm,MC18,Flood Irrigation - Well,11/30/2020,,,56.63,100,1.77
+Merced College Farm,MC18,Flood Irrigation - Well,1/16/2021,,,56.63,100,1.77
+Merced College Farm,MC18,Flood Irrigation - Well,2/18/2021,,,56.63,100,1.77
+Merced College Farm,MC18,Fungicide Application,1/13/2021,,,34.05,0,1.77
+Merced College Farm,MC18,Make Flood Irrigation Checks,10/16/2020,,,8.84,100,1.77
+Merced College Farm,MC18,Mowing,3/20/2021,,,35.37,100,1.77
+Merced College Farm,MC18,Open Drains,10/18/2020,,,8.84,100,1.77
+Merced College Farm,MC18,Open Drains,1/14/2021,,,8.84,100,1.77
+Merced College Farm,MC18,Planting - Drill - Triticale,10/15/2020,,,"2,693.60",100,1.77
+Merced College Farm,MC18,Soil Sampling,10/12/2021,,,40.68,100,1.77
+Merced College Farm,MC19,Close Drains,1/10/2021,,,8.38,100,1.68
+Merced College Farm,MC19,Close Drains,2/28/2021,,,8.38,100,1.68
+Merced College Farm,MC19,Compost Application,10/13/2021,,,360.41,100,1.68
+Merced College Farm,MC19,Disc with Flat Roller,10/14/2021,,,45.26,0,1.68
+Merced College Farm,MC19,Disc with Ring Roller,4/15/2021,,,41.91,100,1.68
+Merced College Farm,MC19,Flood Irrigation - Well,10/30/2020,,,56.29,100,1.68
+Merced College Farm,MC19,Flood Irrigation - Well,11/30/2020,,,56.29,100,1.68
+Merced College Farm,MC19,Flood Irrigation - Well,1/16/2021,,,56.29,100,1.68
+Merced College Farm,MC19,Flood Irrigation - Well,2/18/2021,,,56.29,100,1.68
+Merced College Farm,MC19,Fungicide Application,1/13/2021,,,32.27,0,1.68
+Merced College Farm,MC19,Make Flood Irrigation Checks,10/16/2020,,,8.38,100,1.68
+Merced College Farm,MC19,Mowing,3/20/2021,,,33.53,100,1.68
+Merced College Farm,MC19,Open Drains,10/18/2020,,,8.38,100,1.68
+Merced College Farm,MC19,Open Drains,1/14/2021,,,8.38,100,1.68
+Merced College Farm,MC19,Planting - Drill - Triticale,10/15/2020,,,"2,553.08",100,1.68
+Merced College Farm,MC19,Soil Sampling,10/12/2021,,,38.56,100,1.68
+Merced College Farm,MC20,Close Drains,1/10/2021,,,7.57,100,1.51
+Merced College Farm,MC20,Close Drains,2/28/2021,,,7.57,100,1.51
+Merced College Farm,MC20,Compost Application,10/13/2021,,,325.48,100,1.51
+Merced College Farm,MC20,Disc with Flat Roller,10/14/2021,,,40.87,0,1.51
+Merced College Farm,MC20,Disc with Ring Roller,4/15/2021,,,37.85,100,1.51
+Merced College Farm,MC20,Flood Irrigation - Well,10/30/2020,,,55.68,100,1.51
+Merced College Farm,MC20,Flood Irrigation - Well,11/30/2020,,,55.68,100,1.51
+Merced College Farm,MC20,Flood Irrigation - Well,1/16/2021,,,55.68,100,1.51
+Merced College Farm,MC20,Flood Irrigation - Well,2/18/2021,,,55.68,100,1.51
+Merced College Farm,MC20,Fungicide Application,1/13/2021,,,29.14,0,1.51
+Merced College Farm,MC20,Make Flood Irrigation Checks,10/16/2020,,,7.57,100,1.51
+Merced College Farm,MC20,Mowing,3/20/2021,,,30.28,100,1.51
+Merced College Farm,MC20,Open Drains,10/18/2020,,,7.57,100,1.51
+Merced College Farm,MC20,Open Drains,1/14/2021,,,7.57,100,1.51
+Merced College Farm,MC20,Planting - Drill - Triticale,10/15/2020,,,"2,305.59",100,1.51
+Merced College Farm,MC20,Soil Sampling,10/12/2021,,,34.82,100,1.51
+Merced College Farm,MC21,Close Drains,1/10/2021,,,6.48,100,1.3
+Merced College Farm,MC21,Close Drains,2/28/2021,,,6.48,100,1.3
+Merced College Farm,MC21,Compost Application,10/13/2021,,,278.85,100,1.3
+Merced College Farm,MC21,Disc with Flat Roller,10/14/2021,,,35.02,0,1.3
+Merced College Farm,MC21,Disc with Ring Roller,4/15/2021,,,32.42,100,1.3
+Merced College Farm,MC21,Flood Irrigation - Well,10/30/2020,,,54.86,100,1.3
+Merced College Farm,MC21,Flood Irrigation - Well,11/30/2020,,,54.86,100,1.3
+Merced College Farm,MC21,Flood Irrigation - Well,1/16/2021,,,54.86,100,1.3
+Merced College Farm,MC21,Flood Irrigation - Well,2/18/2021,,,54.86,100,1.3
+Merced College Farm,MC21,Fungicide Application,1/13/2021,,,24.97,0,1.3
+Merced College Farm,MC21,Make Flood Irrigation Checks,10/16/2020,,,6.48,100,1.3
+Merced College Farm,MC21,Mowing,3/20/2021,,,25.94,100,1.3
+Merced College Farm,MC21,Open Drains,10/18/2020,,,6.48,100,1.3
+Merced College Farm,MC21,Open Drains,1/14/2021,,,6.48,100,1.3
+Merced College Farm,MC21,Planting - Drill - Triticale,10/15/2020,,,"1,975.28",100,1.3
+Merced College Farm,MC21,Soil Sampling,10/12/2021,,,29.83,100,1.3
+Merced College Farm,MC22,Close Drains,1/10/2021,,,3.07,100,0.61
+Merced College Farm,MC22,Close Drains,2/28/2021,,,3.07,100,0.61
+Merced College Farm,MC22,Compost Application,10/13/2021,,,132.02,100,0.61
+Merced College Farm,MC22,Disc with Flat Roller,10/14/2021,,,16.58,0,0.61
+Merced College Farm,MC22,Disc with Ring Roller,4/15/2021,,,15.35,100,0.61
+Merced College Farm,MC22,Flood Irrigation - Well,10/30/2020,,,52.3,100,0.61
+Merced College Farm,MC22,Flood Irrigation - Well,11/30/2020,,,52.3,100,0.61
+Merced College Farm,MC22,Flood Irrigation - Well,1/16/2021,,,52.3,100,0.61
+Merced College Farm,MC22,Flood Irrigation - Well,2/18/2021,,,52.3,100,0.61
+Merced College Farm,MC22,Fungicide Application,1/13/2021,,,11.82,0,0.61
+Merced College Farm,MC22,Make Flood Irrigation Checks,10/16/2020,,,3.07,100,0.61
+Merced College Farm,MC22,Mowing,3/20/2021,,,12.28,100,0.61
+Merced College Farm,MC22,Open Drains,10/18/2020,,,3.07,100,0.61
+Merced College Farm,MC22,Open Drains,1/14/2021,,,3.07,100,0.61
+Merced College Farm,MC22,Planting - Drill - Triticale,10/15/2020,,,935.17,100,0.61
+Merced College Farm,MC22,Soil Sampling,10/12/2021,,,14.12,100,0.61
