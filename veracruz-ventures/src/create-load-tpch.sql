@@ -13,10 +13,6 @@ CREATE TABLE WiseConPractice (
     totalFertApp decimal(5,0) 
 );
 
--- .mode "csv"
--- .separator ","
--- .import "AgWorldExportV2 - WiseConn.csv" WiseConPractice
-
 CREATE TABLE AgWorldPractice (
     farm char(30,0) not null,
     fieldID char(4,0) not null,
@@ -28,6 +24,10 @@ CREATE TABLE AgWorldPractice (
     totalAppRate decimal(3,0) not null,
     totalArea decimal(4,0) not null
 )
+
+-- .mode "csv"
+-- .separator ","
+-- .import "AgWorldExportV2 - WiseConn.csv" WiseConPractice
 
 -- .mode "csv";
 -- .separator ",";
