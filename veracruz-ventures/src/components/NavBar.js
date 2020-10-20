@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
-        zIndex: theme.zIndex.drawer + 1,
+        zIndex: theme.zIndex.drawer + 1
     }
 }));
 
@@ -16,10 +16,11 @@ const NavBar = () => {
         <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" noWrap>
-            Veracruz
+            Veracruz Ventures
           </Typography>
         </Toolbar>
       </AppBar>
+      
     )
 }
 
