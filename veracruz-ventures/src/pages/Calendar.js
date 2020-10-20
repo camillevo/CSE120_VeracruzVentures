@@ -1,7 +1,12 @@
 import React from 'react';
+import Gantt from '../components/Gantt';
 
 const Calendar = () => {
-    return <div>This is the Calendar page</div>;
+    return (
+    <div>
+        <Gantt />
+    </div>
+    )
 };
 
 

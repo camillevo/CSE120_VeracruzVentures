@@ -1,58 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import { positions } from '@material-ui/system';
 import './App.css';
-import Drawer from './pages/Drawer'
+import Toolbar from '@material-ui/core/Toolbar';
+
+import PermanentDrawerLeft from './components/Drawer';
+import NavBar from './components/NavBar';
 import { onClick } from '@material-ui/system';
-import DashBoard from './pages/Dashboard';
+import Dashboard from './pages/Dashboard';
 import DataOverview from './pages/Data';
 import Calendar from './pages/Calendar';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  link:{
-    display: 'block',
+  root: {
+    display: "flex",
+    flexGrow: 1
   },
+  content: {
+    padding: "20px"
+  }
 }));
-
-
-
-
-
 
 function App() {
   const classes = useStyles();
   return (
-    // <div>
-    //   <Router>
-    //   <Switch>
-    //     <Route path='/pages/Dashboard' component = {DashBoard}/>  
-    //     <Route path='/pages/Data' component = {DataOverview}/>
-    //     <Route path='/pages/Calendar' component = {Calendar}/>
-    //   </Switch>
-    //   </Router>
-
-    //   <Link href='/pages/Dashboard' className = {classes.link}>
-    //     <Button variant="contained">
-    //       Dashboard
-    //     </Button>
-    //   </Link>
-    //   <Link href='/pages/Data' className = {classes.link}>
-    //     <Button variant="contained">
-    //       Data
-    //     </Button>
-    //   </Link>
-    //   <Link href='/pages/Calendar' className = {classes.link}>
-    //     <Button variant="contained">
-    //       Calendar
-    //     </Button>
-    //   </Link>
-    // </div>
-    <Drawer />
+    <div className={classes.root}>
+      <Router>
+        <NavBar />
+        <PermanentDrawerLeft />
+        <div className={classes.content}> 
+          <Toolbar />
+          <Route exact path="/dashboard" exact component={() => <Dashboard />} />
+          <Route path="/data" component={DataOverview} />
+          <Route exact path="/calendar" component={Calendar} />
+        </div>
+      </Router>
+    </div>
   );
 };
 

@@ -1,7 +1,12 @@
 import React from "react";
+import Typography from '@material-ui/core/Typography';
 
 const DataOverview = () => {
-  return <div>This is the Data page</div>;
+  return (
+    <Typography>
+      Data Overview
+    </Typography>
+  );
 };
 
 export default DataOverview;
