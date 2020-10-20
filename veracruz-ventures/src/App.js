@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import Toolbar from '@material-ui/core/Toolbar';
-
 import PermanentDrawerLeft from './components/Drawer';
 import NavBar from './components/NavBar';
 import { onClick } from '@material-ui/system';
 import Dashboard from './pages/Dashboard';
 import DataOverview from './pages/Data';
 import Calendar from './pages/Calendar';
+import Broswe from './pages/Browse';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -33,6 +33,7 @@ function App() {
           <Route exact path="/dashboard" exact component={() => <Dashboard />} />
           <Route path="/data" component={DataOverview} />
           <Route exact path="/calendar" component={Calendar} />
+          <Route exact path="/browse" component={Broswe} />
         </div>
       </Router>
     </div>
