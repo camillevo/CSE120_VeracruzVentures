@@ -1,13 +1,13 @@
-import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
+import Gantt from '../components/Gantt';
 
-const useStyles = makeStyles((theme) => ({
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3),
-  },
-}));
+const Calendar = () => {
+    return (
+    <div>
+        <Gantt />
+    </div>
+    )
+};
 
 const Calendar = props => {
   const classes = useStyles();

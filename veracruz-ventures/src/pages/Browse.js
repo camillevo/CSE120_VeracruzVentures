@@ -1,10 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Drawer from './Drawer';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
 import Grid from '@material-ui/core/Grid';
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -12,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3),
   },
+
 }));
 
 const fieldID = [
@@ -22,6 +25,72 @@ const fieldID = [
 ];
 
 // indexOf
+
+const BrowseBestPractice = () => {
+    const classes = useStyles();
+    return (
+     <div className={classes.content}>
+      <div className={classes.toolbar} />
+      This is Browse page 
+      <Grid container direction={"row"} spacing={5}>
+      <Grid item>   
+      <div  style={{ width: 300 }}>
+      <Autocomplete
+        id="search field"
+        freeSolo
+        options={fieldID.map((option) => option.title)}
+        // onChange={handleInputChange}
+        renderInput={(params) => (
+          <TextField {...params} label="Search Field" margin="normal" variant="outlined" />
+        )}
+        
+      />
+      </div>
+      </Grid>
+      <Grid item>
+      <div  style={{ width: 300 }}>
+      <Autocomplete
+        id="search plan"
+        freeSolo
+        options={fieldID.map((option) => option.plan)}
+        renderInput={(params) => (
+          <TextField {...params} label="Search plan" margin="normal" variant="outlined" />
+        )}
+        
+      />
+      </div>
+      </Grid>
+      <Grid item>
+      <div  style={{ width: 300 }}>
+      <Autocomplete
+        id="search date"
+        freeSolo
+        options={fieldID.map((option) => option.date)}
+        renderInput={(params) => (
+          <TextField {...params} label="Search date" margin="normal" variant="outlined" />
+        )}
+        
+      />
+      </div>
+      </Grid>
+      <Grid item>
+      <div  style={{ width: 300 }}>
+      <Autocomplete
+        id="search activity"
+        freeSolo
+        options={fieldID.map((option) => option.activity)}
+        renderInput={(params) => (
+          <TextField {...params} label="Search activity" margin="normal" variant="outlined" />
+        )}
+        
+      />
+      </div>
+      </Grid>
+    </Grid>
+
+    </div>
+    );
+};
 
 const Browse = props => {
     const classes = useStyles();

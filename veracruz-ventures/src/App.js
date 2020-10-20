@@ -1,46 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import { positions } from '@material-ui/system';
 import './App.css';
-import Drawer from './pages/Drawer'
+import Toolbar from '@material-ui/core/Toolbar';
+import PermanentDrawerLeft from './components/Drawer';
+import NavBar from './components/NavBar';
 import { onClick } from '@material-ui/system';
+import Dashboard from './pages/Dashboard';
+import DataOverview from './pages/Data';
+import Calendar from './pages/Calendar';
+import Broswe from './pages/Browse';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 
-
-
-import Browse from './pages/Browse';
-import DashBoard from './pages/Dashboard';
-import Data from './pages/Data';
-import Calendar from './pages/Calendar';
-import AppBar from './pages/Appbar';
-
-
-const useStyles = makeStyles({
-  container: {
+const useStyles = makeStyles((theme) => ({
+  root: {
     display: "flex",
+    flexGrow: 1
+  },
+  content: {
+    padding: "20px"
   }
-});
+}));
 
 function App() {
   const classes = useStyles();
   return (
-    <div className={classes.container}>
+    <div className={classes.root}>
       <Router>
-      <AppBar />
-      <Drawer />
-      <Switch>
-        <Route exact from="/pages/Dashboard" render={props => <DashBoard {...props} />} />
-        <Route exact path="/pages/Browse" render={props => <Browse {...props} />} />
-        <Route exact path="/pages/Calendar" render={props => <Calendar {...props} />} />
-        <Route exact path="/pages/Data" render={props => <Data {...props} />} />
-      </Switch>
-      </Router> 
+        <NavBar />
+        <PermanentDrawerLeft />
+        <div className={classes.content}> 
+          <Toolbar />
+          <Route exact path="/dashboard" exact component={() => <Dashboard />} />
+          <Route path="/data" component={DataOverview} />
+          <Route exact path="/calendar" component={Calendar} />
+          <Route exact path="/browse" component={Broswe} />
+        </div>
+      </Router>
     </div>
-   );
+  );
 };
 
 export default App;

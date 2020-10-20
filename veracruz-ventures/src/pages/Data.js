@@ -1,20 +1,11 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles((theme) => ({
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3),
-  },
-}));
-
-const Data = props => {
-  const classes = useStyles();
+const DataOverview = () => {
   return (
-   <div className={classes.content}>
-    This is Data page 
-  </div>
+    <Typography>
+      Data Overview
+    </Typography>
   );
 };
 

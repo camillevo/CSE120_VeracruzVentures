@@ -1,0 +1,6 @@
+1. Change drawer to clipped drawer
+2. Find colors used in demo and change App.css
+3. Create route for Calendar
+4. Create link in menu for Calendar
+5. Find a nice Gantt chart plugin that I like
+6. Customize AppBar
