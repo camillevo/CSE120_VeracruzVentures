@@ -5,14 +5,11 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
 import Grid from '@material-ui/core/Grid';
 
-
-
-
 const useStyles = makeStyles((theme) => ({
   content: {
-    flexGrow: 1,
+    //flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3),
+    //padding: theme.spacing(3),
   },
 
 }));

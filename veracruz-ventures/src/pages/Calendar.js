@@ -9,15 +9,6 @@ const Calendar = () => {
     )
 };
 
-const Calendar = props => {
-  const classes = useStyles();
-  return (
-   <div className={classes.content}>
-    This is Calendar page 
-  </div>
-  );
-};
-
 export default Calendar;
 
 

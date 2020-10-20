@@ -9,5 +9,5 @@ const DataOverview = () => {
   );
 };
 
-export default Data;
+export default DataOverview;
 
