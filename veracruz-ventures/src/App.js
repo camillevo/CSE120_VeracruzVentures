@@ -21,7 +21,7 @@ import AppBar from './pages/Appbar';
 
 const useStyles = makeStyles({
   container: {
-    display: "flex"
+    display: "flex",
   }
 });
 
@@ -30,7 +30,7 @@ function App() {
   return (
     <div className={classes.container}>
       <Router>
-      {/* <AppBar /> */}
+      <AppBar />
       <Drawer />
       <Switch>
         <Route exact from="/pages/Dashboard" render={props => <DashBoard {...props} />} />
