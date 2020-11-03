@@ -3,15 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-sdk/eventstream-marshaller": "^1.0.0-rc.3",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+<<<<<<< HEAD
     "bluebird": "^3.7.2",
+=======
+    "aws-sdk": "^2.784.0",
+>>>>>>> 8534dc8dab11bc451d7321b36c18a9751ac79d66
     "frappe-gantt-react": "^0.2.2",
     "material-ui": "^0.20.2",
     "material-ui-icons": "^1.0.0-beta.36",
+    "node-pre-gyp": "^0.16.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -43,5 +49,10 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "brfs": "^2.0.2",
+    "json-loader": "^0.5.7",
+    "transform-loader": "^0.2.4"
+  }
 }
