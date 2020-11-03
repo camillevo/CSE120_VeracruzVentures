@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Toolbar from '@material-ui/core/Toolbar';
-
 import PermanentDrawerLeft from './components/Drawer';
 import NavBar from './components/NavBar';
 import { onClick } from '@material-ui/system';
