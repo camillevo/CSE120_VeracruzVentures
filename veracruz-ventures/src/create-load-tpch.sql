@@ -31,4 +31,4 @@ CREATE TABLE AgWorldPractice (
 
 -- .mode "csv";
 -- .separator ",";
--- .import "AgWorldExportV2 - AgWorldExportV1.csv" AgWorldPractice;
+-- .import "AgWorldExportV1.csv" AgWorldPractice;
