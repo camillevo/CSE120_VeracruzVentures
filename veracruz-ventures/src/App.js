@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Toolbar from '@material-ui/core/Toolbar';
-
 import PermanentDrawerLeft from './components/Drawer';
 import NavBar from './components/NavBar';
 import { onClick } from '@material-ui/system';
@@ -11,6 +10,11 @@ import Calendar from './pages/Calendar';
 import Browse from './pages/Browse';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
+
+
+import Axios from "axios";
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,6 +27,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+
+  Axios({
+    method: "GET",
+    url: "http://localhost:5000/",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(res => {
+    console.log(res.data.message);
+  });
+
+
+
+
   const classes = useStyles();
   return (
     <div className={classes.root}>
