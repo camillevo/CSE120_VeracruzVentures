@@ -8,7 +8,7 @@ import Drawer from './pages/Drawer'
 import { onClick } from '@material-ui/system';
 import DashBoard from './pages/Dashboard';
 import DataOverview from './pages/Data';
-import Calendar from './pages/Calendar';
+// import Calendar from './pages/Calendar';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
@@ -25,6 +25,22 @@ const useStyles = makeStyles((theme) => ({
 
 
 function App() {
+
+  const sqlite3 = require('sqlite3').verbose()
+  let db = new sqlite3.Database('./data/testdata.sqlite', (err) =>{
+      if(err) {
+          return console.error(err.message);
+      }
+      console.log('Connected to the in-memory SQlite database')
+  })
+
+  db.close((err) => {
+      if (err) {
+          return console.error(err.message)
+      }
+      console.log('Close the database connection.')
+  })
+
   const classes = useStyles();
   return (
     // <div>
