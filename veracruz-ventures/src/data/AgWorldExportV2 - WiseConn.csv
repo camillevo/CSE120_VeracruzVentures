@@ -1,4 +1,4 @@
-Field ID,Crop Type,Irrigation Type,Start Time,Stop Time,Run Time (Minutes),Avg Flow (gpm),Total Water Applied (ac/in),Fert Start Time,Fert Stop Time,Rate (GPM),Total Fert Applied
+Field_ID,Crop_Type,Irrigation_Type,Start_Time,Stop_Time,Run_Time_Minutes,Avg_Flow_gpm,Total_Water_Applied_ac_in,Fert_Start_Time,Fert_Stop_Time,Rate_GPM,Total_Fert_Applied
 MC10,Processing Tomatoes,Drip Irrigation,4/2/20 12:00,4/2/20 18:00,360,25,0.331250138,,,5,
 MC10,Processing Tomatoes,Drip Irrigation,4/10/20 0:00,4/10/20 6:00,360,25,0.331250138,,,5,
 MC10,Processing Tomatoes,Drip Irrigation,4/16/20 0:00,4/16/20 6:00,360,25,0.331250138,,,5,
