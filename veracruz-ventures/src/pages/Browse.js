@@ -44,15 +44,14 @@ const BrowseBestPractice = () => {
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [change, setOutput] = React.useState('');
     const [vars, setVars] = React.useState({
-                                              field: "",
-                                              plan: "",
-                                              date: "",
-                                              activity: ""
-                                              });
+        field: "",
+        plan: "",
+        date: "",
+        activity: ""
+    });
     
-    const handleChange = (e, values) => {
-      alert("id: " + e.currentTarget.id + ", value: " + values);
-      setVars(prevVars => ({ ...prevVars, [e.currentTarget.id]: values }));
+    const handleChange = (e, values, id) => {
+      setVars(prevVars => ({ ...prevVars, [id]: values }));
     }
 
     const onTagsChange = (event, values) => {
@@ -60,15 +59,6 @@ const BrowseBestPractice = () => {
       setOutput(values);
       alert(values);
     }
-
-    const returnValue = () => {
-      alert(change)
-      return change;
-    }
-    // const handleChange = (event, input) =>{
-    //   // setOutput(input);
-    //   console.log(input);
-    // };
 
     const handleChangePage = (event, newPage) => {
       setPage(newPage);
@@ -89,11 +79,7 @@ const BrowseBestPractice = () => {
         id="field"
         freeSolo
         options={rows.map((option) => option.field)}
-        // onInputChange = {() => {
-        //   handleChange(event,'field');
-        // }}
-        name="field"
-        onInputChange={handleChange}
+        onInputChange={(e, v) => handleChange(e, v, "field")}
 
         renderInput={(params) => (
           <TextField {...params} label="Search Field" margin="normal" variant="outlined" />
@@ -109,13 +95,11 @@ const BrowseBestPractice = () => {
         freeSolo
         
         options={rows.map((option) => option.plan)}
-        onInputChange={onTagsChange}
+        onInputChange={(e, v) => handleChange(e, v, "plan")}
         renderInput={(params) => (
           <TextField {...params} label="Search plan" margin="normal" variant="outlined" />
         )}
         
-        //value={this.state.value}
-        //onInputChange = {console.log(this.state.value)
       />
       </div>
       </Grid>
@@ -125,7 +109,7 @@ const BrowseBestPractice = () => {
         id="search date"
         freeSolo
         options={rows.map((option) => option.date)}
-        onInputChange={onTagsChange}
+        onInputChange={(e, v) => handleChange(e, v, "date")}
         renderInput={(params) => (
           <TextField {...params} label="Search date" margin="normal" variant="outlined" />
         )}
@@ -140,7 +124,7 @@ const BrowseBestPractice = () => {
         id="search activity"
         freeSolo
         options={rows.map((option) => option.activity)}
-        onInputChange={onTagsChange}
+        onInputChange={(e, v) => handleChange(e, v, "activity")}
         renderInput={(params) => (
           <TextField {...params} label="Search activity" margin="normal" variant="outlined" />
         )}
@@ -149,10 +133,6 @@ const BrowseBestPractice = () => {
       </div>
       </Grid>
     </Grid>
-
-
-
-
 
       <Paper className={classes.root}>
       <TableContainer className={classes.container}>
@@ -172,16 +152,13 @@ const BrowseBestPractice = () => {
           </TableHead>
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-              const value = row.field;
+              for(let key in vars) {
+                  let value = vars[key];
+                  if (value != "" && row[key] != value) {
+                    return;
+                  }
+              }
 
-
-              if (value != change){
-                return
-
-
-
-
-              } else {
               return (
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
@@ -194,8 +171,8 @@ const BrowseBestPractice = () => {
                   })}
                 </TableRow>
               );
-                }
-            })}
+            })
+        }
           </TableBody>
         </Table>
       </TableContainer>
@@ -213,4 +190,5 @@ const BrowseBestPractice = () => {
     );
 };  
 
+export default BrowseBestPractice;
 
