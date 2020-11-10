@@ -14,8 +14,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Axios from "axios";
 
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -37,9 +35,6 @@ function App() {
   }).then(res => {
     console.log(res.data.message);
   });
-
-
-
 
   const classes = useStyles();
   return (
