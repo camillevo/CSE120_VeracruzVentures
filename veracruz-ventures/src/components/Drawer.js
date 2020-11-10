@@ -37,7 +37,7 @@ const itemsList = [
     {
       text: "Browse Best Practices",
       icon: <SearchIcon />,
-      url: "/",
+      url: "/browse",
       //onClick: () => history.push("/contact")
     },
   ]
