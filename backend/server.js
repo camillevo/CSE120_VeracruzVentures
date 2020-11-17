@@ -8,7 +8,7 @@ const fs = require('fs');
 app.use(cors());
 app.listen(port, () => console.log("Backend server live on " + port));
 
-let db = new sqlite3.Database('./data/data.sqlite', (err) => {
+let db = new sqlite3.Database('./data/practice.sqlite', (err) => {
     if (err) {
       return console.error(err.message);
     }
@@ -23,10 +23,10 @@ db.serialize(() => {
     db.all("SELECT * FROM AgWorldPractice", function(err, rows) {
         rows.forEach(function(row) {
             dataArr.push({
-                "farm": row.farm,
-                "farmId": row.farmId,
-                "activity": row.activity,
-                "dateDue": row.dateDue
+                "farm": row.Farm,
+                "field": row.Field,
+                "activity": row.Activity_Name,
+                "dateDue": row.Date_Due
             })
         });
         mearr.push(JSON.stringify(dataArr));
