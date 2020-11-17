@@ -16,7 +16,6 @@ let db = new sqlite3.Database('./data/practice.sqlite', (err) => {
 });
 
 var dataArr = [];
-let mearr = [];
 
 db.serialize(() => {
 
@@ -29,9 +28,9 @@ db.serialize(() => {
                 "dateDue": row.Date_Due
             })
         });
-        mearr.push(JSON.stringify(dataArr));
+        //mearr.push(JSON.stringify(dataArr));
 
-        fs.writeFile('data.json', mearr, (err) => {
+        fs.writeFile('data.json', JSON.stringify(dataArr), (err) => {
             if (err) {
                 throw err;
             }
@@ -49,5 +48,10 @@ db.close((err) => {
 });
 
 app.get("/", (req, res) => {
-    res.send(mearr);
+    res.send(JSON.stringify(dataArr));
+});
+
+app.get("/pp", (req, res) => {
+    res.send(res.json({ data: 'test' })
+    );
 });
