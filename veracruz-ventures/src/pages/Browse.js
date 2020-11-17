@@ -9,16 +9,17 @@ const rows = [
 ];
 
 
-let getData = () => {
+const getData = () => {
     console.log("getting data");
-    //let data = fetch("http://localhost:5000/pp").then(res => res.json);
-    const data = fetch("http://localhost:5000").then(res => res.json()).then(function(result) {
+    let data = [];
+
+    return fetch("http://localhost:5000").then(res => res.json()).then(function(result) {
         console.log("result: " + result);
-        console.log("result[0]: " + result[0].field);
-        return result;
+        data = {...result};
+        return data;
     });
 
-    return data;
+    //return data;
 }
   
 const options = {
@@ -30,22 +31,15 @@ const options = {
 };
 
 const columns = [
-    {   name: "field",
-        label: "Field",
+    {   name: "farm",
+        label: "Farm",
         options: {
             filter: true,
             sort: true,
         }
     },
-    {   name: "plan",
-        label: "Plan",
-        options: {
-            filter: true,
-            sort: false,
-        }
-    },
-    {   name: "date",
-        label: "Date",
+    {   name: "field",
+        label: "Field",
         options: {
             filter: true,
             sort: false,
@@ -58,15 +52,31 @@ const columns = [
             sort: false,
         }
     },
+    {   name: "dateDue",
+        label: "Date Due",
+        options: {
+            filter: true,
+            sort: false,
+        }
+    },
 ];
 
 
 const BrowseBestPractice = () => {
-    getData();
+    const [rows, setRows] = React.useState([]);
+
+    const handleGetData = async() => {
+        const response = await fetch("http://localhost:5000/");
+        setRows(await response.json());
+        return await response.json;
+    };
+
+    const myRows = handleGetData();
+
     return (
         <MUIDataTable
         title={"Browse List"}
-        data={getData}
+        data={rows}
         columns={columns}
         options={options}
         

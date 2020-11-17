@@ -28,7 +28,6 @@ db.serialize(() => {
                 "dateDue": row.Date_Due
             })
         });
-        //mearr.push(JSON.stringify(dataArr));
 
         fs.writeFile('data.json', JSON.stringify(dataArr), (err) => {
             if (err) {
