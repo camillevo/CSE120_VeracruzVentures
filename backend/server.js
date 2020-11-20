@@ -25,7 +25,12 @@ db.serialize(() => {
                 "farm": row.Farm,
                 "field": row.Field,
                 "activity": row.Activity_Name,
-                "dateDue": row.Date_Due
+                "dateDue": row.Date_Due,
+                "startTime": row.Start_Time,
+                "stopTime": row.Stop_Time,
+                "costDollars": row.Cost_Dollars,
+                "applicationRate": row.Total_Application_Rate_gal_per_acre,
+                "cumulativeArea": row.Cumulative_Area_acre
             })
         });
 

@@ -1,26 +1,5 @@
 import React from 'react';
 import MUIDataTable from "mui-datatables";
-
-const rows = [
-    {field: 'field 1', plan: 'plan 1', date: 'date 1', activity: 'activity 1'},
-    {field: 'field 2', plan: 'plan 2', date: 'date 2', activity: 'activity 2'},
-    {field: 'field 2', plan: 'plan 1', date: 'date 3', activity: 'activity 4'},
-    {field: 'field 3', plan: 'plan 3', date: 'date 3', activity: 'activity 3'},
-];
-
-
-const getData = () => {
-    console.log("getting data");
-    let data = [];
-
-    return fetch("http://localhost:5000").then(res => res.json()).then(function(result) {
-        console.log("result: " + result);
-        data = {...result};
-        return data;
-    });
-
-    //return data;
-}
   
 const options = {
     filterType: 'checkbox',
@@ -33,32 +12,31 @@ const options = {
 const columns = [
     {   name: "farm",
         label: "Farm",
-        options: {
-            filter: true,
-            sort: true,
-        }
     },
     {   name: "field",
         label: "Field",
-        options: {
-            filter: true,
-            sort: false,
-        }
     },
     {   name: "activity",
         label: "Activity",
-        options: {
-            filter: true,
-            sort: false,
-        }
     },
     {   name: "dateDue",
         label: "Date Due",
-        options: {
-            filter: true,
-            sort: false,
-        }
     },
+    {   name: "startTime",
+        label: "Start Time"
+    },
+    {   name: "stopTime",
+        label: "Stop Time",
+    },
+    {   name: "costDollars",
+        label: "Cost Dollars",
+    },
+    {   name: "applicationRate",
+        label: "Application Rate (gal/acre)",
+    },
+    {   name: "cumulativeArea",
+        label: "Cumulative Area (acre)",
+    }
 ];
 
 
