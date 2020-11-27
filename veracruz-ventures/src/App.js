@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Toolbar from '@material-ui/core/Toolbar';
-
 import PermanentDrawerLeft from './components/Drawer';
 import NavBar from './components/NavBar';
 import { onClick } from '@material-ui/system';
@@ -16,6 +15,9 @@ import Axios from "axios";
 
 
 
+
+
+import Axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,7 +39,6 @@ function App() {
   }).then(res => {
     console.log(res.data.message);
   });
-
 
   const classes = useStyles();
   return (
