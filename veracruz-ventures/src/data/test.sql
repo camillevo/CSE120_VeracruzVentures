@@ -1,0 +1,2 @@
+SELECT COUNT(*)
+FROM Canal_Level_PSI
