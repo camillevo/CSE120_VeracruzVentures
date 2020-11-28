@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MUIDataTable from "mui-datatables";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
 const options = {
     filterType: 'checkbox',
     selectableRows: 'none',
-    print: 'false'
+    print: 'false',
+    // Goal: click on row, popup comes up with start and stop input.
 };
 
 const columns = [
@@ -46,9 +47,13 @@ function DataTable(props) {
 }
 
 const DataOverview = () => {
-    const [rows, setRows] = React.useState([]);
+    const [rows, setRows] = useState([]);
     const classes = useStyles();
-    const [tabIndex, setTabIndex] = React.useState(0);
+    const [tabIndex, setTabIndex] = useState(0);
+
+    useEffect(() => {
+        handleGetData();
+      }, []);
 
     const handleChange = (event, value) => {
         setTabIndex(value);
@@ -59,9 +64,6 @@ const DataOverview = () => {
         setRows(await response.json());
         return await response.json;
     };
-    // this line is improper. I'm only doing it so that handleGetData gets called
-    // handleGetData() fills the "rows" - not "myRows" - variable using "setRows"
-    const myRows = handleGetData();
 
     return (
         <div className={classes.root}>
