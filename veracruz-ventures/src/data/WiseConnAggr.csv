@@ -1,4 +1,4 @@
-time,Canal Level PSI,Flow Meter,Rain Meter,Sentek 1 sensor depth,Solar Radiation,Temp,Wind Direction
+Time,Canal_Level_PSI,Flow_Meter,Rain_Meter,Sentek_1_sensor_depth,Solar_Radiation,Temp,Wind_Direction
 2020-01-12T11:15:00.000Z,1.618,0,0,35.987,459.7399,51.5811,5
 2020-01-12T11:30:00.000Z,1.618,0,0,35.974,497.0279,51.6267,5
 2020-01-12T11:45:00.000Z,1.6227,0,0,35.987,486.9382,52.5807,5

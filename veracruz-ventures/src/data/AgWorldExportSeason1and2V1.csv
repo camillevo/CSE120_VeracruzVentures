@@ -1,4 +1,4 @@
-Farm,Field,Crop,Activity Name,Date Due,Date & Time Started,Date & Time Completed,Active Ingredient,Cumulative Area (acre),Total Application Rate (gal/acre),Volume Rate (gal/acre),Harvested Weight (ton)
+Farm,Field,Crop,Activity_Name,Date_Due,Date_&_Time_Started,Date_&_Time_Completed,Active_Ingredient,Cumulative_Area_(acre),Total_Application_Rate_(gal/acre),Volume_Rate_(gal/acre),Harvested_Weight_(ton)
 Merced College Farm,MC01,Pasture,Compost Application,1/31/2021,,,Aluminium,2.53,100,0,0
 Merced College Farm,MC01,Pasture,Compost Application,1/31/2021,,,Boron,2.53,100,0,0
 Merced College Farm,MC01,Pasture,Compost Application,1/31/2021,,,Calcium,2.53,100,0,0
