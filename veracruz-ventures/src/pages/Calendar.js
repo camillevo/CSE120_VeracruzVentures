@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Gantt from '../components/Gantt';
-import GoogleGantt from '../components/GoogleGantt'
+import GoogleGantt from '../components/GoogleGantt';
+import Button from '@material-ui/core/Button';
 
 const Calendar = () => {
     const [data, setData] = useState([]);
@@ -35,15 +36,19 @@ const Calendar = () => {
     <div>
         <h3>Head to Data Overview to add items to your calendar!</h3>
         {data == 0 ? 
-            <h3>You must add 3 or more activities for calendar to display</h3> : 
+            <h3>You must add 1 or more activities for calendar to display</h3> : 
             <GoogleGantt activities={data}/>}
+            
+        <Button variant="contained" color="secondary" onClick={() => {
+            localStorage.setItem("activities", JSON.stringify([]));
+            window.location.reload(false);
+        }}>
+            Clear Calendar
+        </Button>
+
     </div>
     )
 };
 
 
 export default Calendar;
-
-
-
-
