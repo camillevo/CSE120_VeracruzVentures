@@ -91,7 +91,7 @@ const DataOverview = () => {
         onRowClick: (rowData, rowMeta) => {
             setPopupProps({
                 ...popupProps,
-                name: rowData[2],
+                name: rowData[3],
                 field: rowData[1],
                 isOpen: true,
             })
