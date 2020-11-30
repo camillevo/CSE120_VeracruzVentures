@@ -17,6 +17,7 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-google-charts": "^3.0.15",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
@@ -44,6 +45,5 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "author": "",
-  "license": "ISC",
-  "proxy": "http://localhost:8080"
+  "license": "ISC"
 }

@@ -4,26 +4,17 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Popup from "../components/Popup";
 
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
-      width: 930,
+      width: '100%',
     }
   }));
 
-const options = {
-    filterType: 'checkbox',
-    selectableRows: 'none',
-    print: 'false',
-    //resizableColumns: true,
-    rowsPerPageOptions: [5,10,20],
-    tableBodyMaxHeight: '600px',
-    // Goal: click on row, popup comes up with start and stop input.
-};
-
-const columns0 = [
+  const columns0 = [
     {   name: "farm", label: "Farm" },
     {   name: "field", label: "Field" },
     {   name: "crop", label: "Crop" },
@@ -50,7 +41,7 @@ const columns1 = [
 ];
 
 function DataTable(props) {
-    const { value, index, myRows, myColumns, title} = props;
+    const { value, index, myRows, myColumns, title, options} = props;
     return (
         <div hidden={value !== index} >
             <MUIDataTable
@@ -67,10 +58,64 @@ const DataOverview = () => {
     const [rows, setRows] = useState([]);
     const classes = useStyles();
     const [tabIndex, setTabIndex] = useState(0);
+    const [calendarActivities, setCalendarActivities] = useState([]);
+    const [popupProps, setPopupProps] = useState({
+        isOpen: false,
+        onSubmit: (name, start, end, field) => {
+            if(start == '' || end == '') {
+                window.alert("Please enter start and end date");
+                return;
+            }
+            let oldData = JSON.parse( localStorage.getItem("activities"));
+            oldData.push({
+                name: name,
+                field: field,
+                startDate: start,
+                endDate: end,
+            })
+            localStorage.setItem("activities", JSON.stringify(oldData));
+            popupProps.myHandleClose();
+        },
+        name: '',
+        field: '',
+        myHandleClose: () => setPopupProps({
+            ...popupProps,
+            isOpen: false,
+        }),
+    });
+
+    const optionsAg = {
+        filterType: 'checkbox',
+        selectableRows: 'none',
+        print: 'false',
+        onRowClick: (rowData, rowMeta) => {
+            setPopupProps({
+                ...popupProps,
+                name: rowData[2],
+                field: rowData[1],
+                isOpen: true,
+            })
+        }
+    };
+    
+    const optionsWc = {
+        filterType: 'checkbox',
+        selectableRows: 'none',
+        print: 'false',
+    };
 
     useEffect(() => {
         handleGetData();
-      }, []);
+        if(localStorage.getItem("activities") === null) {
+            //window.alert("its null");
+            localStorage.setItem("activities", JSON.stringify([]));
+        }
+    }, []);
+
+    // useEffect(() => {
+    //     //const json = JSON.stringify(notes);
+    //     localStorage.setItem("textTest", calendarActivities);
+    // }, [calendarActivities]);
 
     const handleChange = (event, value) => {
         setTabIndex(value);
@@ -91,21 +136,24 @@ const DataOverview = () => {
     return (
         <div className={classes.root}>
             <h3>Click a row to add the activity to your calendar!</h3>
+            <Popup {...popupProps}/>
+
             <AppBar position="static" color="default">
                 <Tabs
                     value={tabIndex}
                     onChange={handleChange}
-                    variant="500px"
+                    variant="fullWidth"
                 >
                     <Tab label="Farm Data"/>
                     <Tab label="Irrigation Data"/>
                 </Tabs>
             </AppBar>
-            <DataTable value={tabIndex} index={0} title={"AgWorld"} myRows={rows} myColumns={columns0}/>
-            <DataTable value={tabIndex} index={1} title={"Wiseconn"} myRows={rows} myColumns={columns1}/>
+            <DataTable value={tabIndex} index={0} title={"AgWorld"} myRows={rows} myColumns={columns0} options={optionsAg}/>
+            <DataTable value={tabIndex} index={1} title={"Wiseconn"} myRows={rows} myColumns={columns1} options={optionsWc}/>
         </div>
     );
 };
 
 
 export default DataOverview;
+
