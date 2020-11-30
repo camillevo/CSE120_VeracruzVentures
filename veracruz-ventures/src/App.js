@@ -3,12 +3,11 @@ import './App.css';
 import Toolbar from '@material-ui/core/Toolbar';
 import PermanentDrawerLeft from './components/Drawer';
 import NavBar from './components/NavBar';
-import { onClick } from '@material-ui/system';
 import Dashboard from './pages/Dashboard';
 import DataOverview from './pages/Data';
 import Calendar from './pages/Calendar';
 import Browse from './pages/Browse';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -25,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+    const [calendar, setCalendar] = React.useState("first");
 
   Axios({
     method: "GET",
@@ -37,6 +37,7 @@ function App() {
   });
 
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <Router>
@@ -45,8 +46,8 @@ function App() {
         <div className={classes.content}> 
           <Toolbar />
           <Route exact path="/dashboard" exact component={() => <Dashboard />} />
-          <Route path="/data" component={DataOverview} />
-          <Route exact path="/calendar" component={Calendar} />
+          <Route path="/data" exact component={() => <DataOverview />} />
+          <Route exact path="/calendar" exact component={() => <Calendar />} />
           <Route exact path="/browse" component={Browse} />
         </div>
       </Router>

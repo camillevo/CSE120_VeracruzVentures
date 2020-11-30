@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Popup from "../components/Popup";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -13,11 +14,22 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-const options = {
+const optionsAg = {
     filterType: 'checkbox',
     selectableRows: 'none',
     print: 'false',
-    // Goal: click on row, popup comes up with start and stop input.
+    onRowClick: (rowData, rowMeta) => {
+        //window.alert("farm = " + rowData[0] + "name = " + rowData[1]);
+        return (
+            <Popup />
+        )
+    }
+};
+
+const optionsWc = {
+    filterType: 'checkbox',
+    selectableRows: 'multiple',
+    print: 'false',
 };
 
 const columns = [
@@ -40,7 +52,7 @@ function DataTable(props) {
                 title={title}
                 data={myRows}
                 columns={myColumns}
-                options={options}
+                options={index?optionsWc:optionsAg}
             />
         </div>
     );
@@ -50,10 +62,40 @@ const DataOverview = () => {
     const [rows, setRows] = useState([]);
     const classes = useStyles();
     const [tabIndex, setTabIndex] = useState(0);
+    const [calendarActivities, setCalendarActivities] = useState([]);
+    const [temp, setTemp] = useState("");
+
+    const data = [{
+        name: "Water the stuff",
+        field: "MP1",
+        startDate: "2020-01-05T12:10:00",
+        endDate: "2020-01-08T16:10:00",
+    },
+    {
+        name: "farm stuff",
+        field: "MP2",
+        startDate: "2020-01-06T09:30:00",
+        endDate: "2020-01-07T05:30:00"
+    },
+    {
+        name: "feed cat",
+        field: "MP2",
+        startDate: "2020-01-08T12:00:00",
+        endDate: "2020-01-08T13:50:00"
+    }];
 
     useEffect(() => {
         handleGetData();
-      }, []);
+       // setCalendarActivities(JSON.parse( localStorage.getItem("textTest")));
+        setCalendarActivities(localStorage.getItem("textTest"));
+        localStorage.setItem("activities", JSON.stringify(data));
+        console.log("should be string ", data);
+    }, []);
+
+    useEffect(() => {
+        //const json = JSON.stringify(notes);
+        localStorage.setItem("textTest", calendarActivities);
+    }, [calendarActivities]);
 
     const handleChange = (event, value) => {
         setTabIndex(value);
@@ -68,6 +110,14 @@ const DataOverview = () => {
     return (
         <div className={classes.root}>
             <h3>Click a row to add the activity to your calendar!</h3>
+            <Popup />
+            <input onChange={(e) => setTemp(e.target.value)} />
+            <button onClick={() => {
+                setCalendarActivities([...calendarActivities, temp]);
+                setTemp("");
+                //localStorage.setItem("textTest", calendarActivities)
+            }
+            }>Submit</button>
             <AppBar position="static" color="default">
                 <Tabs
                     value={tabIndex}
