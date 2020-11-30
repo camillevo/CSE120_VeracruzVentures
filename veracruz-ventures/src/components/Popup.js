@@ -8,51 +8,57 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function Popup(props) {
-  const [open, setOpen] = React.useState(false);
+  const { isOpen, onSubmit, name, field, myHandleClose} = props;
+  const [open, setOpen] = React.useState(isOpen);
+  const [start, setStart] = React.useState('');
+  const [end, setEnd] = React.useState('');
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  React.useEffect(() => {
+    setOpen(isOpen);
+    console.log("fired");
+  }, [isOpen])
+
+  const handleSubmit = () => {
+    //setOpen(false);
+    onSubmit(name, start, end, field);
   };
 
   const handleClose = () => {
     setOpen(false);
+    myHandleClose();
   };
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogContent>
           <DialogContentText>
-            {props.name} on field {props.field}
+            {name} on field {field}
           </DialogContentText>
           <TextField
             id="datetime-local"
             label="Start Date and Time"
             type="datetime-local"
-            defaultValue={props.dateDue}
+            //defaultValue={dateDue}
+            onChange={(e) => setStart(e.target.value)}
             InputLabelProps={{
             shrink: true,
             }}
         />
-        <h2>   </h2>
+        <h2>  </h2>
         <TextField              
-            id="time"
-            label="Duration"
-            type="time"
-            defaultValue="07:30"
+            id="datetime-local"
+            label="End Date and Time"
+            type="datetime-local"
+            //defaultValue={dateDue}
+            onChange={(e) => setEnd(e.target.value)}
             InputLabelProps={{
             shrink: true,
-            }}
-            inputProps={{
-            step: 300, // 5 min
             }}
         />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={() => handleSubmit()} color="primary">
             Add to Calendar
           </Button>
         </DialogActions>

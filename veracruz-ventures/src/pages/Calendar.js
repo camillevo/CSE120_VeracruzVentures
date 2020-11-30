@@ -9,18 +9,21 @@ const Calendar = () => {
 
     useEffect(() => {
         let rawData = JSON.parse( localStorage.getItem("activities") );
+        if(rawData === null) {
+            setData(0);
+            return;
+        }
         if(rawData.length < 3) setData(0);
         let parsedData = [];
         rawData.forEach(curr => {
             parsedData.push([
-                curr.name,
+                curr.name + curr.startDate,
                 curr.name,
                 curr.field,
                 new Date(curr.startDate),
-               // null,
+                new Date(curr.endDate),
+                //7 * 60 * 60 * 1000,
                 null,
-                //new Date(curr.endDate),
-                7 * 60 * 60 * 1000,
                 100,
                 null,       
             ])

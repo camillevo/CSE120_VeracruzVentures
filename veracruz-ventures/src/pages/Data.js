@@ -14,24 +14,6 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-const optionsAg = {
-    filterType: 'checkbox',
-    selectableRows: 'none',
-    print: 'false',
-    onRowClick: (rowData, rowMeta) => {
-        //window.alert("farm = " + rowData[0] + "name = " + rowData[1]);
-        return (
-            <Popup />
-        )
-    }
-};
-
-const optionsWc = {
-    filterType: 'checkbox',
-    selectableRows: 'multiple',
-    print: 'false',
-};
-
 const columns = [
     {   name: "farm", label: "Farm" },
     {   name: "field", label: "Field" },
@@ -45,14 +27,14 @@ const columns = [
 ];
 
 function DataTable(props) {
-    const { value, index, myRows, myColumns, title} = props;
+    const { value, index, myRows, myColumns, title, options} = props;
     return (
         <div hidden={value !== index} >
             <MUIDataTable
                 title={title}
                 data={myRows}
                 columns={myColumns}
-                options={index?optionsWc:optionsAg}
+                options={options}
             />
         </div>
     );
@@ -63,39 +45,63 @@ const DataOverview = () => {
     const classes = useStyles();
     const [tabIndex, setTabIndex] = useState(0);
     const [calendarActivities, setCalendarActivities] = useState([]);
-    const [temp, setTemp] = useState("");
+    const [popupProps, setPopupProps] = useState({
+        isOpen: false,
+        onSubmit: (name, start, end, field) => {
+            if(start == '' || end == '') {
+                window.alert("Please enter start and end date");
+                return;
+            }
+            let oldData = JSON.parse( localStorage.getItem("activities"));
+            oldData.push({
+                name: name,
+                field: field,
+                startDate: start,
+                endDate: end,
+            })
+            localStorage.setItem("activities", JSON.stringify(oldData));
+            popupProps.myHandleClose();
+        },
+        name: '',
+        field: '',
+        myHandleClose: () => setPopupProps({
+            ...popupProps,
+            isOpen: false,
+        }),
+    });
 
-    const data = [{
-        name: "Water the stuff",
-        field: "MP1",
-        startDate: "2020-01-05T12:10:00",
-        endDate: "2020-01-08T16:10:00",
-    },
-    {
-        name: "farm stuff",
-        field: "MP2",
-        startDate: "2020-01-06T09:30:00",
-        endDate: "2020-01-07T05:30:00"
-    },
-    {
-        name: "feed cat",
-        field: "MP2",
-        startDate: "2020-01-08T12:00:00",
-        endDate: "2020-01-08T13:50:00"
-    }];
+    const optionsAg = {
+        filterType: 'checkbox',
+        selectableRows: 'none',
+        print: 'false',
+        onRowClick: (rowData, rowMeta) => {
+            setPopupProps({
+                ...popupProps,
+                name: rowData[2],
+                field: rowData[1],
+                isOpen: true,
+            })
+        }
+    };
+    
+    const optionsWc = {
+        filterType: 'checkbox',
+        selectableRows: 'multiple',
+        print: 'false',
+    };
 
     useEffect(() => {
         handleGetData();
-       // setCalendarActivities(JSON.parse( localStorage.getItem("textTest")));
-        setCalendarActivities(localStorage.getItem("textTest"));
-        localStorage.setItem("activities", JSON.stringify(data));
-        console.log("should be string ", data);
+        if(localStorage.getItem("activities") === null) {
+            //window.alert("its null");
+            localStorage.setItem("activities", JSON.stringify([]));
+        }
     }, []);
 
-    useEffect(() => {
-        //const json = JSON.stringify(notes);
-        localStorage.setItem("textTest", calendarActivities);
-    }, [calendarActivities]);
+    // useEffect(() => {
+    //     //const json = JSON.stringify(notes);
+    //     localStorage.setItem("textTest", calendarActivities);
+    // }, [calendarActivities]);
 
     const handleChange = (event, value) => {
         setTabIndex(value);
@@ -110,14 +116,8 @@ const DataOverview = () => {
     return (
         <div className={classes.root}>
             <h3>Click a row to add the activity to your calendar!</h3>
-            <Popup />
-            <input onChange={(e) => setTemp(e.target.value)} />
-            <button onClick={() => {
-                setCalendarActivities([...calendarActivities, temp]);
-                setTemp("");
-                //localStorage.setItem("textTest", calendarActivities)
-            }
-            }>Submit</button>
+            <Popup {...popupProps}/>
+
             <AppBar position="static" color="default">
                 <Tabs
                     value={tabIndex}
@@ -128,8 +128,8 @@ const DataOverview = () => {
                     <Tab label="Irrigation Data"/>
                 </Tabs>
             </AppBar>
-            <DataTable value={tabIndex} index={0} title={"AgWorld"} myRows={rows} myColumns={columns}/>
-            <DataTable value={tabIndex} index={1} title={"Wiseconn"} myRows={rows} myColumns={columns}/>
+            <DataTable value={tabIndex} index={0} title={"AgWorld"} myRows={rows} myColumns={columns} options={optionsAg}/>
+            <DataTable value={tabIndex} index={1} title={"Wiseconn"} myRows={rows} myColumns={columns} options={optionsWc}/>
         </div>
     );
 };
