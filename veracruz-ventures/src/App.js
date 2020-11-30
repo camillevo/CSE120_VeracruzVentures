@@ -12,13 +12,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Axios from "axios";
 
-
-
-
-
-
-import Axios from "axios";
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
