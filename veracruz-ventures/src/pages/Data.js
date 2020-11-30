@@ -10,20 +10,34 @@ const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
-      width: 930,
+      width: '100%',
     }
   }));
 
-const columns = [
+  const columns0 = [
     {   name: "farm", label: "Farm" },
     {   name: "field", label: "Field" },
+    {   name: "crop", label: "Crop" },
     {   name: "activity", label: "Activity" },
     {   name: "dateDue", label: "Date Due" },
     {   name: "startTime", label: "Start Time" },
     {   name: "stopTime", label: "Stop Time" },
-    {   name: "costDollars", label: "Cost Dollars" },
-    {   name: "applicationRate", label: "Application Rate (gal/acre)" },
-    {   name: "cumulativeArea", label: "Cumulative Area (acre)"  }
+    {   name: "activeIngredient", label: "Active Ingredient" },
+    {   name: "cumulativeArea", label: "Cumulative Area (acre)" },
+    {   name: "totalApplicationRate", label: "Total Application Rate (gal/acre)" },
+    {   name: "volumnRate", label: "Volumn Rate (gal/acre)" },
+    {   name: "harvestedWeight", label: "Harvested Weight (ton)" },
+];
+
+const columns1 = [
+  {   name: "time", label: "Time" },
+  {   name: "canal", label: "Canal Level PSI" },
+  {   name: "flow", label: "Flow Meter" },
+  {   name: "rain", label: "Rain Meter" },
+  {   name: "sentek", label: "Sentek 1 sensor depth" },
+  {   name: "solar", label: "Solar Radiation" },
+  {   name: "temp", label: "Temp" },
+  {   name: "wind", label: "Wind Direction" }
 ];
 
 function DataTable(props) {
@@ -86,7 +100,7 @@ const DataOverview = () => {
     
     const optionsWc = {
         filterType: 'checkbox',
-        selectableRows: 'multiple',
+        selectableRows: 'none',
         print: 'false',
     };
 
@@ -105,10 +119,16 @@ const DataOverview = () => {
 
     const handleChange = (event, value) => {
         setTabIndex(value);
+        handleGetData(value);
     };
 
-    const handleGetData = async() => {
-        const response = await fetch("http://localhost:5000/");
+    const handleGetData = async(value) => {
+        let response;
+        if (value == 1){
+            response = await fetch("http://localhost:5000/wiseconn");
+        } else {
+            response = await fetch("http://localhost:5000/agworld");
+        }
         setRows(await response.json());
         return await response.json;
     };
@@ -128,8 +148,8 @@ const DataOverview = () => {
                     <Tab label="Irrigation Data"/>
                 </Tabs>
             </AppBar>
-            <DataTable value={tabIndex} index={0} title={"AgWorld"} myRows={rows} myColumns={columns} options={optionsAg}/>
-            <DataTable value={tabIndex} index={1} title={"Wiseconn"} myRows={rows} myColumns={columns} options={optionsWc}/>
+            <DataTable value={tabIndex} index={0} title={"AgWorld"} myRows={rows} myColumns={columns0} options={optionsAg}/>
+            <DataTable value={tabIndex} index={1} title={"Wiseconn"} myRows={rows} myColumns={columns1} options={optionsWc}/>
         </div>
     );
 };
