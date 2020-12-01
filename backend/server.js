@@ -62,7 +62,7 @@ db.serialize(() => {
         });
     });
     
-    // MAKE THE AGWORLD DATES COMPATIBLE TO SQLITE BECAUSE M/D/Y FORMAT IS FOR PLEBS
+    // MAKE THE AGWORLD DATES COMPATIBLE TO SQLITE
 		db.all("CREATE VIEW agWorkableDates AS SELECT date(y || '-' || m || '-' || d) as date, * FROM (SELECT Date_Due, (cast(substr(Date_Due, -1, -3) as INTEGER) * 10 + cast(substr(Date_Due, -1, 1) as INTEGER)) as y, CASE WHEN length('0' || (cast(substr(Date_Due, 0, 3) as INTEGER))) == 2 THEN '0' || (cast(substr(Date_Due, 0, 3) as INTEGER)) ELSE (cast(substr(Date_Due, 0, 3) as INTEGER)) END m, CASE WHEN length('0' || (cast(substr(Date_Due, 3, 4) as INTEGER) | cast(substr(Date_Due, 4, 4) as INTEGER))) == 2 THEN ('0' || (cast(substr(Date_Due, 3, 4) as INTEGER) | cast(substr(Date_Due, 4, 4) as INTEGER))) ELSE (cast(substr(Date_Due, 3, 4) as INTEGER) | cast(substr(Date_Due, 4, 4) as INTEGER)) END d, * FROM AgWorld);", (err) => {
 			if (err) {
 			  return console.error(err.message);
