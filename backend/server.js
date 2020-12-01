@@ -71,7 +71,8 @@ db.serialize(() => {
 		});
     
     // QUERY FOR DAILY SCHEDULE
-	db.all("SELECT * FROM (SELECT date, Farm, Field, Crop, Activity_Name FROM agWorkableDates WHERE abs(julianday('now') - julianday(date)) < 8 and julianday('now') <= julianday(date) UNION SELECT substr(Time, 0, 11) as date, ' . ' as Farm, ' . ' as Field, ' . ' as Crop, 'WiseConn Irrigation' as Activity_Name FROM Wise WHERE abs(julianday('now') - julianday(substr(Time, 0, 11))) < 8 and julianday('now') <= julianday(substr(Time, 0, 11)) GROUP BY julianday(substr(Time, 0, 11))) ORDER BY date asc;", function(err, rows) {
+    // replace sample date (2021-01-10) with 'now' to get the weekly schedule starting today
+	db.all("SELECT * FROM (SELECT date, Farm, Field, Crop, Activity_Name FROM agWorkableDates WHERE abs(julianday('2021-01-10') - julianday(date)) < 8 and julianday('2021-01-10') <= julianday(date) UNION SELECT substr(Time, 0, 11) as date, ' . ' as Farm, ' . ' as Field, ' . ' as Crop, 'WiseConn Irrigation' as Activity_Name FROM Wise WHERE abs(julianday('2021-01-10') - julianday(substr(Time, 0, 11))) < 8 and julianday('2021-01-10') <= julianday(substr(Time, 0, 11)) GROUP BY julianday(substr(Time, 0, 11))) ORDER BY date asc;", function(err, rows) {
 		rows.forEach(function(row) {
 			dataArrWS.push({
 				"date": row.date,
