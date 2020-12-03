@@ -50,17 +50,48 @@ function PopupShown(props) {
 }
 
 const Browse = props => {
+	
+	var browseUsers = ["Bob", "Tom", "Jørn", "Jennifer", "Nan", "Hitoshi", "Sven"];
+	var purchaseUsers = ["Julie", "Steve", "Raku", "Hamid", "Christian"];
+	
     const classes = useStyles();
     const [tabIndex, setTabIndex] = useState(0);
     const handleChange = (event, value) => {
         setTabIndex(value);
         //handleGetData(value);
     };
-    const [openPopup, setOpenPopup] = useState(0);
+    const [openPopup, setOpenPopup] = useState(false);
+    const [popupText, setPopupText] = useState('');
     const handlePopup = (event, value) => {
-		setOpenPopup(value);
-	}
+		if(openPopup === false){
+			setOpenPopup(true);
+			setPopupText(value);
+		}
+		else{
+			setOpenPopup(false);
+			setPopupText('');
+		}
+	};
+	
+	React.useEffect(() => {
+		setOpenPopup(openPopup);
+	}, [openPopup])
     
+    function ShowBrowseData () {
+		var rtn = new Array(browseUsers.length);
+		for(var i = 0; i < browseUsers.length; i ++){
+			rtn[i] = <BrowseComponent title={browseUsers[i] + '\'s Data'} index={i} value="hi" action={handlePopup} />;
+		}
+		return(<div>{rtn}</div>);
+	}
+	
+	function ShowPurchaseData () {
+		var rtn = new Array(purchaseUsers.length);
+		for(var i = 0; i < purchaseUsers.length; i ++){
+			rtn[i] = <BrowseComponent title={purchaseUsers[i] + '\'s Data'} index={i} action={handlePopup} />;
+		}
+		return(<div>{rtn}</div>);
+	}
     
     const contentStyling = {
 		//window.innerHeight/1.2
@@ -80,28 +111,25 @@ const Browse = props => {
 		return(
 			<div>
 				Browse Practices <br />
-				<BrowseComponent title="Bob's Browse" value={'false'} action={handlePopup}/>
-				<BrowseComponent title="Joe's Browse"/>
-				<BrowseComponent title="Jørn's Browse"/>
-				<BrowseComponent title="Jennifer's Browse"/>
-				<BrowseComponent title="Nan's Browse"/>
-				<BrowseComponent title="Christian's Browse"/>
-				<BrowseComponent title="Sven's Browse"/>
+				<ShowBrowseData />
+				
 			</div>
 		);
 	}
 	function PurchaseContent () {
 		return (
 			<div>
-				Purchase Practices
+				Purchase Practices <br />
+				<ShowPurchaseData />
 			</div>
 		);
 	}
     
     return (
      <div className={classes.root} style={contentStyling}>
-		<BrowsePopup />
-      <h3>Browse Best Practices or View Purchased Practices</h3>
+		<BrowsePopup isOpen={openPopup} txt={popupText} action={handlePopup}/>
+		
+		<h3>Browse Best Practices or View Purchased Practices</h3>
 		<AppBar position="static" color="default">
 			<Tabs
 				value={tabIndex}
