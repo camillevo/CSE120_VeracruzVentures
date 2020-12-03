@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
 import Popup from "../components/Popup";
 
 const useStyles = makeStyles((theme) => ({
@@ -135,7 +136,11 @@ const DataOverview = () => {
 
     return (
         <div className={classes.root}>
-            <h3>Click a row to add the activity to your calendar!</h3>
+            <Typography variant="h4">Data Overview</Typography>
+            <Typography variant="body2" style={{margin: "10px 0px 20px 0px"}}>
+                Click a row to add the activity to your calendar. You can also sort, filter, and export your
+                data to CSV.
+            </Typography>
             <Popup {...popupProps}/>
 
             <AppBar position="static" color="default">
