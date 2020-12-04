@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import MUIDataTable from "mui-datatables";
 import { makeStyles } from "@material-ui/core/styles";
-import GoogleGantt from '../components/GoogleGantt';
 import Typography from '@material-ui/core/Typography';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-//import { Chart } from "frappe-charts";
+import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -26,12 +24,6 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-
-
-
-
-
-
 const options = {
     filterType: 'checkbox',
     selectableRows: 'none',
@@ -40,57 +32,56 @@ const options = {
     tableBodyMaxHeight: '20%',
 };
 
-function generate(element) {
-    return parsedData.map((value) =>
-      React.cloneElement(element, {
-        key: value,
-      }),
+function GenerateList(props) {
+    const {thisWeek, data} = props;
+    let rtn = [];
+    for(let curr in data){
+        rtn.push(
+            <ListItem>
+                <ListItemIcon>
+                    <FilterVintageIcon />
+                </ListItemIcon>
+            <ListItemText
+                primary={data[curr].name + ", " + data[curr].field}
+                secondary= {"Due: " + data[curr].endDate.toLocaleString()}
+            />
+            </ListItem>
+        );
+    }
+    return (
+        <List dense={false}>
+            {rtn}
+        </List>
     );
   }
 
 const Dashboard = () => {
-    const [rows, setRows] = React.useState([]);
-    const [agRows, setAgRows] = React.useState([]);
-    const [tabIndex, setTabIndex] = useState(0);
-    
-
     const classes = useStyles();
-    const [dense, setDense] = React.useState(false);
-    const [secondary, setSecondary] = React.useState(false);
-
     const [data, setData] = useState([]);
-
 
     useEffect(() => {
         let rawData = JSON.parse( localStorage.getItem("activities") );
         let parsedData = [];
         rawData.forEach(curr => {
-            parsedData.push([
-                curr.name,
-                new Date(curr.endDate),
-            ])
+            parsedData.push({
+                name: curr.name,
+                field: curr.field,
+                endDate: new Date(curr.endDate),
+            })
         })
+        console.log(parsedData);
         setData(parsedData);
     }, []);
 
     return (
 	   <div>
             <div className = {classes.map}>
-            <iframe width="1000" height="800" frameborder="10" src="https://www.bing.com/maps/embed?h=800&w=1000&cp=37.34211233036821~-120.47395737423523&lvl=16&typ=d&sty=h&src=SHELL&FORM=MBEDV8" scrolling="no">
+            <iframe width="700" height="500" frameborder="10" src="https://www.bing.com/maps/embed?h=800&w=1000&cp=37.34211233036821~-120.47395737423523&lvl=16&typ=d&sty=h&src=SHELL&FORM=MBEDV8" scrolling="no">
 				 </iframe>
             </div>
-            <Typography className={classes.text}>
-                List
-                <List dense={dense}>
-                {generate(
-                    <ListItem>
-                    <ListItemText
-                        primary="Single-line item"
-                        secondary= "sec"
-                    />
-                    </ListItem>,
-                )}
-                </List>
+            <Typography variant="h5" className={classes.text}>
+                This Week's Tasks
+                <GenerateList data={data}/>
             </Typography>
 		</div>
     );
