@@ -32,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
         float: "left"
     },
     text2: {
-        margin: "10px 0px 20px 0px"
+        margin: "10px 0px 20px 0px",
+        width: "800px"
     }
 }));
     
