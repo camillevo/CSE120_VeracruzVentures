@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 //import { Chart } from "react-google-charts";
 import Chart from "react-google-charts";
 
+
 const sampleData = [
     [
     { type: 'string', label: 'Task ID' },
