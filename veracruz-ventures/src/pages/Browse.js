@@ -6,6 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import BrowseComponent from "../components/BrowseComponent";
 import BrowsePopup from "../components/BrowsePopup";
+import {testData} from "./testData";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
     tabContentStyling: {
 		//height: window.innerHeight/1.8,
-		height: "70%",
+        height: "70%",
 		//padding: '10px',
 		overflowY: 'auto',
 		//boxShadow: '0px 4px 4px #CCCCCC',
@@ -35,17 +36,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TabContent(props) {
-    const {value, index, handlePopup} = props;
+    const {value, index, buttonAction, data} = props;
     let rtn = [];
-    console.log(data);
+    //console.log(data);
     for(let curr in data){
         // on 0 show false
-        console.log(data[curr]);
+        //console.log(data[curr]);
         if(index == 0 && data[curr].purchased == false) {
-            rtn.push(<BrowseComponent {...data[curr]} action={handlePopup} />);
+            rtn.push(<BrowseComponent {...data[curr]} action={buttonAction} />);
         }
         if(index == 1 && data[curr].purchased == true) {
-            rtn.push(<BrowseComponent {...data[curr]} action={handlePopup} />);
+            rtn.push(<BrowseComponent {...data[curr]} action={buttonAction} />);
         }
     }
     return (
@@ -54,48 +55,56 @@ function TabContent(props) {
         </div>
     );
 }
-
-const data = [
-    {name: "Bob", cpa: 213, yld: 500, purchased: false},
-    {name: "Tom", cpa: 67, yld: 430, purchased: false},
-    {name: "Jørn", cpa: 90, yld: 700, purchased: false},
-    {name: "Jennifer", cpa: 148, yld: 278, purchased: false},
-    {name: "Nan", cpa: 89, yld: 745, purchased: false},
-    {name: "Hitoshi", cpa: 157, yld: 980, purchased: false},
-    {name: "Sven", cpa: 190, yld: 678, purchased: false},
-    {name: "Julie", cpa: 201, yld: 387, purchased: true},
-    {name: "Steve", cpa: 113, yld: 600, purchased: true},
-    {name: "Raku", cpa: 95, yld: 421, purchased: true}, 
-];
     
 const Browse = props => {
     const classes = useStyles();
     const [tabIndex, setTabIndex] = useState(0);
     const [openPopup, setOpenPopup] = useState(false);
-    const [popupText, setPopupText] = useState('');
+    const [popupText, setPopupText] = useState({});
+    const [data, setData] = useState([]);
 
     const handleChange = (event, value) => {
         setTabIndex(value);
     };
     const handlePopup = (event, value) => {
-		if(openPopup === false){
-			setOpenPopup(true);
-			setPopupText(value);
-		}
-		else{
-			setOpenPopup(false);
-			setPopupText('');
-		}
+        setOpenPopup(!openPopup);
+        if(openPopup) {
+            setOpenPopup(false);
+            setPopupText({name: "", cpa: 0, yld: 0, purchased: true});
+        } else {
+            setOpenPopup(true);
+            setPopupText(value);
+        } 
 	};
-	
+    
+    const purchase = (event, value) => {
+        let temp = data.slice();
+        (temp.find( ({ name }) => name === value )).purchased = true;
+        setData(temp);
+        localStorage.setItem("practices", JSON.stringify(temp));
+    }
+
+    const seeData = (event, value) => {
+        let path = '/browse/' + value.name;
+        //<Link to={`/browse/${value.name}`}>{user.name}'s Page</Link>
+        window.location.href = path;
+    }
+
 	React.useEffect(() => {
 		setOpenPopup(openPopup);
-	}, [openPopup])
+    }, [openPopup]);
     
+    
+	React.useEffect(() => {
+		if(localStorage.getItem("practices") == null) {
+            localStorage.setItem("practices", JSON.stringify(testData));
+        }
+        setData(JSON.parse( localStorage.getItem("practices")));
+	}, [])
     
     return (
      <div className={classes.root} className={classes.contentStyling}>
-		<BrowsePopup isOpen={openPopup} txt={popupText} action={handlePopup}/>
+		<BrowsePopup isOpen={openPopup} txt={popupText} handleClick={purchase} action={handlePopup}/>
 		
 		<Typography variant="h4">Browse Best Practices</Typography>
         <Typography variant="body2" style={{margin: "10px 0px 20px 0px"}}>
@@ -115,8 +124,8 @@ const Browse = props => {
 			</Tabs>
 		</AppBar>
         <div className={classes.tabContentStyling}>
-        <TabContent value={tabIndex} index={0} handlePopup={handlePopup}/>
-        <TabContent value={tabIndex} index={1} handlePopup={handlePopup}/>
+        <TabContent value={tabIndex} index={0} buttonAction={handlePopup} data={data}/>
+        <TabContent value={tabIndex} index={1} buttonAction={seeData} data={data}/>
         </div>
     </div>
     );

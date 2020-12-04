@@ -37,7 +37,7 @@ export default function BrowseComponent(props) {
             <Typography variant="body2" style={{display: "inline-block"}}>
                 {"Yield: " + props.yld}
             </Typography>
-            <button style={viewDataButtonStyling} value={'hi'} onClick={props.action}>
+            <button style={viewDataButtonStyling} value={'hi'} onClick={(e) => props.action(e, props)}>
                 <Typography variant="button" noWrap>{props.purchased? "View Data":"Buy"}</Typography>
             </button>
         </Paper>
