@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import MUIDataTable from "mui-datatables";
 import { makeStyles } from "@material-ui/core/styles";
-import GoogleGantt from '../components/GoogleGantt';
 import Typography from '@material-ui/core/Typography';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 //import { Chart } from "frappe-charts";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,6 +39,9 @@ function GenerateList(props) {
     for(let curr in data){
         rtn.push(
             <ListItem>
+                <ListItemIcon>
+                    <FilterVintageIcon />
+                </ListItemIcon>
             <ListItemText
                 primary={data[curr].name + ", " + data[curr].field}
                 secondary= {"Due: " + data[curr].endDate.toLocaleString()}
@@ -75,7 +77,7 @@ const Dashboard = () => {
     return (
 	   <div>
             <div className = {classes.map}>
-            <iframe width="800" height="600" frameborder="10" src="https://www.bing.com/maps/embed?h=800&w=1000&cp=37.34211233036821~-120.47395737423523&lvl=16&typ=d&sty=h&src=SHELL&FORM=MBEDV8" scrolling="no">
+            <iframe width="700" height="500" frameborder="10" src="https://www.bing.com/maps/embed?h=800&w=1000&cp=37.34211233036821~-120.47395737423523&lvl=16&typ=d&sty=h&src=SHELL&FORM=MBEDV8" scrolling="no">
 				 </iframe>
             </div>
             <Typography variant="h5" className={classes.text}>
