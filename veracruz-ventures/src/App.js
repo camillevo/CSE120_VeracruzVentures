@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import DataOverview from './pages/Data';
 import Calendar from './pages/Calendar';
 import Browse from './pages/Browse';
+import BrowsePerson from './pages/BrowsePerson'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -49,6 +50,7 @@ function App() {
           <Route path="/data" exact component={() => <DataOverview />} />
           <Route exact path="/calendar" exact component={() => <Calendar />} />
           <Route exact path="/browse" component={Browse} />
+          <Route path="/browse/:name" component={BrowsePerson} />
         </div>
       </Router>
     </div>

@@ -2,6 +2,11 @@ import React, {useState, useEffect} from 'react';
 import MUIDataTable from "mui-datatables";
 import { makeStyles } from "@material-ui/core/styles";
 import GoogleGantt from '../components/GoogleGantt';
+import Typography from '@material-ui/core/Typography';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 //import { Chart } from "frappe-charts";
 
 const useStyles = makeStyles((theme) => ({
@@ -10,8 +15,22 @@ const useStyles = makeStyles((theme) => ({
 	  backgroundColor: theme.palette.background.paper,
 	  width: '100%',
 	  position: 'relative'
-	}
+    },
+    map: {
+        float: "left",
+        marginLeft: "30px",
+    },
+    text: {
+        marginLeft: "30px",
+        float: "right",
+    }
 }));
+
+
+
+
+
+
 
 const options = {
     filterType: 'checkbox',
@@ -19,99 +38,60 @@ const options = {
     print: 'false',
     tableBodyHeight: '20%',
     tableBodyMaxHeight: '20%',
-    //ask the industry partner about it
-    //download: 'false' 
 };
 
-// const columns = [
-//     {   name: "date",
-//         label: "Date Due",
-//     },
-//     {   name: "farm",
-//         label: "Farm",
-//     },
-//     {   name: "field",
-//         label: "Field",
-//     },
-//     {
-// 		name: "crop",
-// 		label: "Crop",
-// 	},
-//     {   name: "activity",
-//         label: "Activity",
-//     }
-// ];
-
-// const fieldColumns = [
-//     {   name: "farm",
-//         label: "Farm",
-//     },
-//     {
-// 		name: "crop",
-// 		label: "Crop",
-// 	}
-// ];
-
+function generate(element) {
+    return parsedData.map((value) =>
+      React.cloneElement(element, {
+        key: value,
+      }),
+    );
+  }
 
 const Dashboard = () => {
     const [rows, setRows] = React.useState([]);
-    //const [fRows, setFRows] = React.useState([]);
     const [agRows, setAgRows] = React.useState([]);
     const [tabIndex, setTabIndex] = useState(0);
-    const classes = useStyles();
-    const [data, setData] = useState([]);
     
-    let parsedData = [];
+
+    const classes = useStyles();
+    const [dense, setDense] = React.useState(false);
+    const [secondary, setSecondary] = React.useState(false);
+
+    const [data, setData] = useState([]);
+
 
     useEffect(() => {
         let rawData = JSON.parse( localStorage.getItem("activities") );
-        if(rawData === null) {
-            setData(0);
-            return;
-        }
-        if(rawData.length < 3) setData(0);
         let parsedData = [];
-
-        let today = '2012-12-6';
-        //alert(new Date(today));
         rawData.forEach(curr => {
-            if (new Date(curr.startDate) >= new Date(today)){
-                console.log(true);
-            }
-
-
-            //alert(new Date(curr.startDate));
-            if (new Date(curr.startDate) >= new Date(today)){
-                parsedData.push([
-                    curr.name + curr.startDate,
-                    curr.name,
-                    curr.field,
-                    new Date(curr.startDate),
-                    new Date(curr.endDate),
-                    //7 * 60 * 60 * 1000,
-                    null,
-                    100,
-                    null,       
-                ])
-            }
+            parsedData.push([
+                curr.name,
+                new Date(curr.endDate),
+            ])
         })
         setData(parsedData);
     }, []);
 
-    const formatTable = {
-		display: "block",
-		marginLeft: "auto",
-		marginRight: "auto"
-	}
     return (
 	   <div>
-            <div>
-            <iframe width="1000" height="600" frameborder="0" src="https://www.bing.com/maps/embed?h=600&w=1000&cp=37.34211233036821~-120.47395737423523&lvl=16&typ=d&sty=h&src=SHELL&FORM=MBEDV8" scrolling="no">
+            <div className = {classes.map}>
+            <iframe width="1000" height="800" frameborder="10" src="https://www.bing.com/maps/embed?h=800&w=1000&cp=37.34211233036821~-120.47395737423523&lvl=16&typ=d&sty=h&src=SHELL&FORM=MBEDV8" scrolling="no">
 				 </iframe>
             </div>
-            {data == 0 ? 
-            <h3>There are no agenda</h3> : 
-            <GoogleGantt activities={data}/>}
+            <Typography className={classes.text}>
+                List
+                <List dense={dense}>
+                {generate(
+                    <ListItem>
+                    <ListItemText
+                        primary="Single-line item"
+                        secondary= "sec"
+                    />
+                    </ListItem>,
+                )}
+                </List>
+            </Typography>
 		</div>
     );
 };

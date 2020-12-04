@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
-import Grid from '@material-ui/core/Grid';
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import BrowseComponent from "../components/BrowseComponent";
 import BrowsePopup from "../components/BrowsePopup";
+import {testData} from "./testData";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -16,123 +14,105 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.background.paper,
       width: '100%',
     },
-  content: {
-    //flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    //padding: theme.spacing(3),
-  },
-}));
-
-const BrowseBestPractice = () => {
-    const classes = useStyles();
-    return (
-     <div className={classes.content}>
-
-    </div>
-    );
-};
-
-function TabContent(props) {
-    const {value, index, content} = props;
-    return (
-        <div hidden={value !== index} >
-			{content}
-        </div>
-    );
-}
-function PopupShown(props) {
-	const {value, content} = props;
-	return (
-		<div>
-			<BrowsePopup isOpen={value} txt={content}/>
-		</div>
-	);
-}
-
-const Browse = props => {
-	
-	var browseUsers = ["Bob", "Tom", "Jørn", "Jennifer", "Nan", "Hitoshi", "Sven"];
-	var purchaseUsers = ["Julie", "Steve", "Raku", "Hamid", "Christian"];
-	
-    const classes = useStyles();
-    const [tabIndex, setTabIndex] = useState(0);
-    const handleChange = (event, value) => {
-        setTabIndex(value);
-        //handleGetData(value);
-    };
-    const [openPopup, setOpenPopup] = useState(false);
-    const [popupText, setPopupText] = useState('');
-    const handlePopup = (event, value) => {
-		if(openPopup === false){
-			setOpenPopup(true);
-			setPopupText(value);
-		}
-		else{
-			setOpenPopup(false);
-			setPopupText('');
-		}
-	};
-
-
-
-	
-	// React.useEffect(() => {
-	// 	setOpenPopup(openPopup);
-	// }, [openPopup])
-    
-    function ShowBrowseData () {
-		var rtn = new Array(browseUsers.length);
-		for(var i = 0; i < browseUsers.length; i ++){
-			rtn[i] = <BrowseComponent title={browseUsers[i] + '\'s Data'} index={i} value="hi" action={handlePopup} />;
-		}
-		return(<div>{rtn}</div>);
-	}
-	
-	function ShowPurchaseData () {
-		var rtn = new Array(purchaseUsers.length);
-		for(var i = 0; i < purchaseUsers.length; i ++){
-			rtn[i] = <BrowseComponent title={purchaseUsers[i] + '\'s Data'} index={i} action={handlePopup} />;
-		}
-		return(<div>{rtn}</div>);
-	}
-    
-    const contentStyling = {
+    content: {
+        //flexGrow: 1,
+        backgroundColor: theme.palette.background.default,
+        //padding: theme.spacing(3),
+    },
+    contentStyling: {
 		//window.innerHeight/1.2
 		width: window.innerWidth-300,
 		height: window.innerHeight/1.2,
 		border: '2px',
 		overflowY: 'auto', 
-    }
-    const tabContentStyling = {
+    },
+    tabContentStyling: {
 		//height: window.innerHeight/1.8,
-		height: "70%",
-		padding: '10px',
+        height: "70%",
+		//padding: '10px',
 		overflowY: 'auto',
-		boxShadow: '0px 4px 4px #CCCCCC',
+		//boxShadow: '0px 4px 4px #CCCCCC',
 	}
-	function BrowseContent () {
-		return(
-			<div>
-				Browse Practices <br />
-				<ShowBrowseData />
-				
-			</div>
-		);
-	}
-	function PurchaseContent () {
-		return (
-			<div>
-				Purchase Practices <br />
-				<ShowPurchaseData />
-			</div>
-		);
-	}
+}));
+
+function TabContent(props) {
+    const {value, index, buttonAction, data} = props;
+    let rtn = [];
+    //console.log(data);
+    for(let curr in data){
+        // on 0 show false
+        //console.log(data[curr]);
+        if(index == 0 && data[curr].purchased == false) {
+            rtn.push(<BrowseComponent {...data[curr]} action={buttonAction} />);
+        }
+        if(index == 1 && data[curr].purchased == true) {
+            rtn.push(<BrowseComponent {...data[curr]} action={buttonAction} />);
+        }
+    }
+    return (
+        <div hidden={value !== index} >
+			{rtn}
+        </div>
+    );
+}
+    
+const Browse = props => {
+    const classes = useStyles();
+    const [tabIndex, setTabIndex] = useState(0);
+    const [openPopup, setOpenPopup] = useState(false);
+    const [popupText, setPopupText] = useState({});
+    const [data, setData] = useState([]);
+
+    const handleChange = (event, value) => {
+        setTabIndex(value);
+    };
+    const handlePopup = (event, value) => {
+        setOpenPopup(!openPopup);
+        if(openPopup) {
+            setOpenPopup(false);
+            setPopupText({name: "", cpa: 0, yld: 0, purchased: true});
+        } else {
+            setOpenPopup(true);
+            setPopupText(value);
+        } 
+	};
+    
+    const purchase = (event, value) => {
+        let temp = data.slice();
+        (temp.find( ({ name }) => name === value )).purchased = true;
+        setData(temp);
+        localStorage.setItem("practices", JSON.stringify(temp));
+    }
+
+    const seeData = (event, value) => {
+        let path = '/browse/' + value.name;
+        //<Link to={`/browse/${value.name}`}>{user.name}'s Page</Link>
+        window.location.href = path;
+    }
+
+	React.useEffect(() => {
+		setOpenPopup(openPopup);
+    }, [openPopup]);
+    
+    
+	React.useEffect(() => {
+		if(localStorage.getItem("practices") == null) {
+            localStorage.setItem("practices", JSON.stringify(testData));
+        }
+        setData(JSON.parse( localStorage.getItem("practices")));
+	}, [])
     
     return (
-     <div className={classes.root} style={contentStyling}>
-		<BrowsePopup isOpen={openPopup} txt={popupText} action={handlePopup}/>
+     <div className={classes.root} className={classes.contentStyling}>
+		<BrowsePopup isOpen={openPopup} txt={popupText} handleClick={purchase} action={handlePopup}/>
 		
-		<h3>Browse Best Practices or View Purchased Practices</h3>
+		<Typography variant="h4">Browse Best Practices</Typography>
+        <Typography variant="body2" style={{margin: "10px 0px 20px 0px"}}>
+            Learn from other's successes by purchasing their tried and true Best Practices. You'll be able to
+            view all of their daily farm activities and add to your calendar. You can view all of your purchased 
+            Best Practices here too.
+        </Typography>
+
 		<AppBar position="static" color="default">
 			<Tabs
 				value={tabIndex}
@@ -143,10 +123,10 @@ const Browse = props => {
 				<Tab label="Purchased Practices"/>
 			</Tabs>
 		</AppBar>
-		<div style={tabContentStyling}>
-			<TabContent value={tabIndex} index={0} content={<BrowseContent />} />
-			<TabContent value={tabIndex} index={1} content={<PurchaseContent />} />
-		</div>
+        <div className={classes.tabContentStyling}>
+        <TabContent value={tabIndex} index={0} buttonAction={handlePopup} data={data}/>
+        <TabContent value={tabIndex} index={1} buttonAction={seeData} data={data}/>
+        </div>
     </div>
     );
 };

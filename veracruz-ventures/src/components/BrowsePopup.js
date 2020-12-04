@@ -26,20 +26,21 @@ export default function BrowsePopup(props) {
 		marginRight: '-50%',
 		transform: 'translate(-50%, -50%)',
 
-	    width: "30%",
-	    height: "20%",
+	    width: "25%",
+	    //height: "20%",
 	    wordWrap: 'break-word',
 	    overflowY: 'auto',
-	    boxShadow: '0px 4px 4px #CCCCCC',
+	    boxShadow: '0px 4px 8px #666666',
 	    
 	    background: "white",
 	    padding: "20px",
 	}
 	const browsePopupButtonStyling = {
 		height: "50px",
-		width: "200px",
+		//width: "200px",
 	    padding: '10px',
-		background: "#3f51b5",
+        background: "#3f51b5",
+        marginTop: '15px',
 		color: "white",
 		border: "none",
 	    cursor: "pointer",
@@ -53,17 +54,27 @@ export default function BrowsePopup(props) {
 		fontSize: '20px',
 		padding: '5px',
 		float: "right",
-	}
+    }
+    const textStyle = {
+       // float: "left",
+       textAlign: "left"
+    }
 	
 	return(
 		<div style={backStyling} hidden={!(open)}>
 		<div style={browsePopupStyling}>
 			<button style={browseCloseButtonStyling} onClick={action}><b>X</b></button>
 			<center>
-			<h3> View this data? {txt}</h3>
+			{/* <h3> {"View this data? " + txt}</h3> */}
+            <Typography variant="h6" style={textStyle}>{txt.name}</Typography>
+            <Typography variant="body2" style={textStyle}>{"Cost per Acre: $" + txt.cpa}</Typography>
+            <Typography variant="body2" style={textStyle}>{"Yield: " + txt.yld}</Typography>
 			<form action="https://paypal.com" target="_blank">
-				<button style={browsePopupButtonStyling} type="submit">
-					<Typography variant="h7" noWrap>Click Here to Purchase</Typography>
+				<button style={browsePopupButtonStyling} type="submit" onClick={(e) => {
+                    action();
+                    props.handleClick(e,txt.name);
+                }}>
+					<Typography variant="button" noWrap>Click Here to Purchase</Typography>
 				</button>
 			</form>
 			</center>
