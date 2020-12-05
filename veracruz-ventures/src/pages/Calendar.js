@@ -45,19 +45,6 @@ const Calendar = () => {
             startDate: start,
             endDate: end,
         });
-        // let parsedData = [...data];
-        // parsedData.push([
-        //     name + start + '',
-        //     name + '',
-        //     field + '',
-        //     new Date(start),
-        //     new Date(end),
-        //     null,
-        //     100,
-        //     null,
-        // ])
-        // console.log("new " + parsedData);
-        //setData(parsedData);
         localStorage.setItem("activities", JSON.stringify(oldData));
         setPopup(false);
     }
