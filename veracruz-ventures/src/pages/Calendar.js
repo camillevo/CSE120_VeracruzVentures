@@ -3,11 +3,11 @@ import Gantt from '../components/Gantt';
 import GoogleGantt from '../components/GoogleGantt';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Popup from '../components/Popup';
 
 const Calendar = () => {
     const [data, setData] = useState([]);
-    
-    let parsedData = [];
+    const [popup, setPopup] = useState(false);
 
     useEffect(() => {
         let rawData = JSON.parse( localStorage.getItem("activities") );
@@ -24,17 +24,48 @@ const Calendar = () => {
                 curr.field,
                 new Date(curr.startDate),
                 new Date(curr.endDate),
-                //7 * 60 * 60 * 1000,
                 null,
                 100,
                 null,       
             ])
         })
+        console.log("old " + parsedData);
         setData(parsedData);
-    }, []);
+    }, [localStorage.getItem("activities")]);
+
+    useEffect(() => {
+        console.log("should rerender");
+    }, [data]);
+
+    const manualAdd = (name, start, end, field) => {
+        let oldData = JSON.parse( localStorage.getItem("activities"));
+        oldData.push({
+            name: name,
+            field: field,
+            startDate: start,
+            endDate: end,
+        });
+        // let parsedData = [...data];
+        // parsedData.push([
+        //     name + start + '',
+        //     name + '',
+        //     field + '',
+        //     new Date(start),
+        //     new Date(end),
+        //     null,
+        //     100,
+        //     null,
+        // ])
+        // console.log("new " + parsedData);
+        //setData(parsedData);
+        localStorage.setItem("activities", JSON.stringify(oldData));
+        setPopup(false);
+    }
 
     return (
     <div>
+        <Popup type="manualInput" isOpen={popup} onSubmit={manualAdd} myHandleClose={()=>setPopup(false)} />
+
         <Typography variant="h4">Your Calendar</Typography>
         <Typography variant="body2" style={{margin: "10px 0px 20px 0px"}}>
             Hover over each task to see field information. To add activities to your calendar, 
@@ -49,6 +80,11 @@ const Calendar = () => {
             window.location.reload(false);
         }}>
             Clear Calendar
+        </Button>
+        <Button variant="contained" color="primary" style={{marginLeft: "15px"}} onClick={() => {
+            setPopup(true);
+        }}>
+            Add Item Manually
         </Button>
 
     </div>

@@ -7,19 +7,58 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+function ManualPopup(props) {
+    return (
+    <div>
+    <DialogContentText>
+        Add Activity
+    </DialogContentText>
+    <TextField              
+        id="activities"
+        label="Activity Name"
+        type="text"
+        onChange={(e) => props.changeActivity(e.target.value)}
+        InputLabelProps={{
+        shrink: true,
+        }}
+    />
+    <h2>  </h2>
+    <TextField              
+        id="field"
+        label="Field"
+        type="text"
+        onChange={(e) => props.changeField(e.target.value)}
+        InputLabelProps={{
+        shrink: true,
+        }}
+    />
+    <h2>  </h2>
+    </div>
+    )
+}
+
 export default function Popup(props) {
   const { isOpen, onSubmit, name, field, myHandleClose} = props;
   const [open, setOpen] = React.useState(isOpen);
   const [start, setStart] = React.useState('');
   const [end, setEnd] = React.useState('');
+  const [inputName, setInputName] = React.useState('');
+  const [inputField, setInputField] = React.useState('');
 
   React.useEffect(() => {
     setOpen(isOpen);
-    console.log("fired");
   }, [isOpen])
 
   const handleSubmit = () => {
-    //setOpen(false);
+    if(props.type) {
+        if(inputName.trim() == '' || start == '' || end == '') {
+            window.alert("Please complete form.");
+            return;
+        }
+        console.log(inputName + " " + inputField);
+        onSubmit(inputName, start, end, inputField);
+        return;
+    }
     onSubmit(name, start, end, field);
   };
 
@@ -28,13 +67,15 @@ export default function Popup(props) {
     myHandleClose();
   };
 
+
   return (
     <div>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogContent>
-          <DialogContentText>
-            {name} on field {field}
-          </DialogContentText>
+            {props.type? <ManualPopup changeActivity={(v)=>setInputName(v)} changeField={(v)=>setInputField(v)}/> : 
+            <DialogContentText>
+                {name} on field {field}
+            </DialogContentText> }
           <TextField
             id="datetime-local"
             label="Start Date and Time"
