@@ -63,12 +63,21 @@ const Dashboard = () => {
     useEffect(() => {
         let rawData = JSON.parse( localStorage.getItem("activities") );
         let parsedData = [];
+        let weekStart = new Date('2020-12-7');
+        let weekEnd = new Date('2020-12-13');
+        
         rawData.forEach(curr => {
-            parsedData.push({
-                name: curr.name,
-                field: curr.field,
-                endDate: new Date(curr.endDate),
-            })
+            let taskStart = new Date(curr.startDate); 
+            let taskEnd = new Date(curr.endDate);
+            if ((taskStart >= weekStart && taskStart <= weekEnd) || 
+                (taskEnd >= weekStart && taskEnd <= weekEnd) ||
+                (taskStart <= weekStart && taskEnd >= weekEnd)) {
+                parsedData.push({
+                    name: curr.name,
+                    field: curr.field,
+                    endDate: new Date(curr.endDate),
+                })
+            }
         })
         console.log(parsedData);
         setData(parsedData);
