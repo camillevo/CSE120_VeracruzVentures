@@ -3,18 +3,16 @@ import './App.css';
 import Toolbar from '@material-ui/core/Toolbar';
 import PermanentDrawerLeft from './components/Drawer';
 import NavBar from './components/NavBar';
-import { onClick } from '@material-ui/system';
 import Dashboard from './pages/Dashboard';
 import DataOverview from './pages/Data';
 import Calendar from './pages/Calendar';
 import Browse from './pages/Browse';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import BrowsePerson from './pages/BrowsePerson'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
 
 import Axios from "axios";
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,10 +36,8 @@ function App() {
     console.log(res.data.message);
   });
 
-
-
-
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <Router>
@@ -49,10 +45,11 @@ function App() {
         <PermanentDrawerLeft />
         <div className={classes.content}> 
           <Toolbar />
-          <Route exact path="/dashboard" exact component={() => <Dashboard />} />
-          <Route path="/data" component={DataOverview} />
-          <Route exact path="/calendar" component={Calendar} />
+          <Route exact path="/dashboard" component={() => <Dashboard />} />
+          <Route path="/data" exact component={() => <DataOverview />} />
+          <Route exact path="/calendar" component={() => <Calendar />} />
           <Route exact path="/browse" component={Browse} />
+          <Route path="/browse/:name" component={BrowsePerson} />
         </div>
       </Router>
     </div>

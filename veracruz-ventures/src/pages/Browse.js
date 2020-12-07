@@ -1,160 +1,134 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
-import Grid from '@material-ui/core/Grid';
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import BrowseComponent from "../components/BrowseComponent";
+import BrowsePopup from "../components/BrowsePopup";
+import {testData} from "./testData";
 
 const useStyles = makeStyles((theme) => ({
-  content: {
-    //flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    //padding: theme.spacing(3),
-  },
-
+	root: {
+      flexGrow: 1,
+      backgroundColor: theme.palette.background.paper,
+      width: '100%',
+    },
+    content: {
+        //flexGrow: 1,
+        backgroundColor: theme.palette.background.default,
+        //padding: theme.spacing(3),
+    },
+    contentStyling: {
+		//window.innerHeight/1.2
+		width: window.innerWidth-300,
+		height: window.innerHeight/1.2,
+		border: '2px',
+		overflowY: 'auto', 
+    },
+    tabContentStyling: {
+		//height: window.innerHeight/1.8,
+        height: "70%",
+		//padding: '10px',
+		overflowY: 'auto',
+		//boxShadow: '0px 4px 4px #CCCCCC',
+	}
 }));
 
-const fieldID = [
-  { title: 'field 1', plan: 'plan 1', date: 'date 1', activity: 'activity 1'},
-  { title: 'field 2', plan: 'plan 2', date: 'date 2', activity: 'activity 2'},
-  { title: 'field 2', plan: 'plan 1', date: 'date 3', activity: 'activity 4'},
-  { title: 'field 3', plan: 'plan 3', date: 'date 3', activity: 'activity 3'},
-];
-
-// indexOf
-
-const BrowseBestPractice = () => {
-    const classes = useStyles();
+function TabContent(props) {
+    const {value, index, buttonAction, data} = props;
+    let rtn = [];
+    //console.log(data);
+    for(let curr in data){
+        // on 0 show false
+        //console.log(data[curr]);
+        if(index === 0 && data[curr].purchased === false) {
+            rtn.push(<BrowseComponent {...data[curr]} action={buttonAction} />);
+        }
+        if(index === 1 && data[curr].purchased === true) {
+            rtn.push(<BrowseComponent {...data[curr]} action={buttonAction} />);
+        }
+    }
     return (
-     <div className={classes.content}>
-      <div className={classes.toolbar} />
-      This is Browse page 
-      <Grid container direction={"row"} spacing={5}>
-      <Grid item>   
-      <div  style={{ width: 300 }}>
-      <Autocomplete
-        id="search field"
-        freeSolo
-        options={fieldID.map((option) => option.title)}
-        // onChange={handleInputChange}
-        renderInput={(params) => (
-          <TextField {...params} label="Search Field" margin="normal" variant="outlined" />
-        )}
-        
-      />
-      </div>
-      </Grid>
-      <Grid item>
-      <div  style={{ width: 300 }}>
-      <Autocomplete
-        id="search plan"
-        freeSolo
-        options={fieldID.map((option) => option.plan)}
-        renderInput={(params) => (
-          <TextField {...params} label="Search plan" margin="normal" variant="outlined" />
-        )}
-        
-      />
-      </div>
-      </Grid>
-      <Grid item>
-      <div  style={{ width: 300 }}>
-      <Autocomplete
-        id="search date"
-        freeSolo
-        options={fieldID.map((option) => option.date)}
-        renderInput={(params) => (
-          <TextField {...params} label="Search date" margin="normal" variant="outlined" />
-        )}
-        
-      />
-      </div>
-      </Grid>
-      <Grid item>
-      <div  style={{ width: 300 }}>
-      <Autocomplete
-        id="search activity"
-        freeSolo
-        options={fieldID.map((option) => option.activity)}
-        renderInput={(params) => (
-          <TextField {...params} label="Search activity" margin="normal" variant="outlined" />
-        )}
-        
-      />
-      </div>
-      </Grid>
-    </Grid>
-
-    </div>
+        <div hidden={value !== index} >
+			{rtn}
+        </div>
     );
-};
-
+}
+    
 const Browse = props => {
     const classes = useStyles();
-    return (
-     <div className={classes.content}>
-      This is Browse page 
-      <Grid container direction={"row"} spacing={5}>
-      <Grid item>   
-      <div  style={{ width: 300 }}>
-      <Autocomplete
-        id="search field"
-        freeSolo
-        options={fieldID.map((option) => option.title)}
-        // onChange={handleInputChange}
-        renderInput={(params) => (
-          <TextField {...params} label="Search Field" margin="normal" variant="outlined" />
-        )}
-        
-      />
-      </div>
-      </Grid>
-      <Grid item>
-      <div  style={{ width: 300 }}>
-      <Autocomplete
-        id="search plan"
-        freeSolo
-        options={fieldID.map((option) => option.plan)}
-        renderInput={(params) => (
-          <TextField {...params} label="Search plan" margin="normal" variant="outlined" />
-        )}
-        
-      />
-      </div>
-      </Grid>
-      <Grid item>
-      <div  style={{ width: 300 }}>
-      <Autocomplete
-        id="search date"
-        freeSolo
-        options={fieldID.map((option) => option.date)}
-        renderInput={(params) => (
-          <TextField {...params} label="Search date" margin="normal" variant="outlined" />
-        )}
-        
-      />
-      </div>
-      </Grid>
-      <Grid item>
-      <div  style={{ width: 300 }}>
-      <Autocomplete
-        id="search activity"
-        freeSolo
-        options={fieldID.map((option) => option.activity)}
-        renderInput={(params) => (
-          <TextField {...params} label="Search activity" margin="normal" variant="outlined" />
-        )}
-        
-      />
-      </div>
-      </Grid>
-    </Grid>
+    const [tabIndex, setTabIndex] = useState(0);
+    const [openPopup, setOpenPopup] = useState(false);
+    const [popupText, setPopupText] = useState({});
+    const [data, setData] = useState([]);
 
+    const handleChange = (event, value) => {
+        setTabIndex(value);
+    };
+    const handlePopup = (event, value) => {
+        setOpenPopup(!openPopup);
+        if(openPopup) {
+            setOpenPopup(false);
+            setPopupText({name: "", cpa: 0, yld: 0, purchased: true});
+        } else {
+            setOpenPopup(true);
+            setPopupText(value);
+        } 
+	};
+    
+    const purchase = (event, value) => {
+        let temp = data.slice();
+        (temp.find( ({ name }) => name === value )).purchased = true;
+        setData(temp);
+        localStorage.setItem("practices", JSON.stringify(temp));
+    }
+
+    const seeData = (event, value) => {
+        let path = '/browse/' + value.name;
+        //<Link to={`/browse/${value.name}`}>{user.name}'s Page</Link>
+        window.location.href = path;
+    }
+
+	React.useEffect(() => {
+		setOpenPopup(openPopup);
+    }, [openPopup]);
+    
+    
+	React.useEffect(() => {
+		if(localStorage.getItem("practices") == null) {
+            localStorage.setItem("practices", JSON.stringify(testData));
+        }
+        setData(JSON.parse( localStorage.getItem("practices")));
+	}, [])
+    
+    return (
+     <div className={[classes.root, classes.contentStyling]}>
+		<BrowsePopup isOpen={openPopup} txt={popupText} handleClick={purchase} action={handlePopup}/>
+		
+		<Typography variant="h4">Browse Best Practices</Typography>
+        <Typography variant="body2" style={{margin: "10px 0px 20px 0px"}}>
+            Learn from other's successes by purchasing their tried and true Best Practices. You'll be able to
+            view all of their daily farm activities and add to your calendar. You can view all of your purchased 
+            Best Practices here too.
+        </Typography>
+
+		<AppBar position="static" color="default">
+			<Tabs
+				value={tabIndex}
+				onChange={handleChange}
+				variant="fullWidth"
+			>
+				<Tab label="Browse Best Practices"/>
+				<Tab label="Purchased Practices"/>
+			</Tabs>
+		</AppBar>
+        <div className={classes.tabContentStyling}>
+        <TabContent value={tabIndex} index={0} buttonAction={handlePopup} data={data}/>
+        <TabContent value={tabIndex} index={1} buttonAction={seeData} data={data}/>
+        </div>
     </div>
     );
 };
 
 export default Browse;
-
-
-
