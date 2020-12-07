@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
-    const [calendar, setCalendar] = React.useState("first");
 
   Axios({
     method: "GET",
@@ -46,9 +45,9 @@ function App() {
         <PermanentDrawerLeft />
         <div className={classes.content}> 
           <Toolbar />
-          <Route exact path="/dashboard" exact component={() => <Dashboard />} />
+          <Route exact path="/dashboard" component={() => <Dashboard />} />
           <Route path="/data" exact component={() => <DataOverview />} />
-          <Route exact path="/calendar" exact component={() => <Calendar />} />
+          <Route exact path="/calendar" component={() => <Calendar />} />
           <Route exact path="/browse" component={Browse} />
           <Route path="/browse/:name" component={BrowsePerson} />
         </div>

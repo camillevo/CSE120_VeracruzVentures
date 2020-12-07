@@ -42,10 +42,10 @@ function TabContent(props) {
     for(let curr in data){
         // on 0 show false
         //console.log(data[curr]);
-        if(index == 0 && data[curr].purchased == false) {
+        if(index === 0 && data[curr].purchased === false) {
             rtn.push(<BrowseComponent {...data[curr]} action={buttonAction} />);
         }
-        if(index == 1 && data[curr].purchased == true) {
+        if(index === 1 && data[curr].purchased === true) {
             rtn.push(<BrowseComponent {...data[curr]} action={buttonAction} />);
         }
     }
@@ -103,7 +103,7 @@ const Browse = props => {
 	}, [])
     
     return (
-     <div className={classes.root} className={classes.contentStyling}>
+     <div className={[classes.root, classes.contentStyling]}>
 		<BrowsePopup isOpen={openPopup} txt={popupText} handleClick={purchase} action={handlePopup}/>
 		
 		<Typography variant="h4">Browse Best Practices</Typography>

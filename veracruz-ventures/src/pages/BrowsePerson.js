@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import BrowseComponent from "../components/BrowseComponent";
-import BrowsePopup from "../components/BrowsePopup";
-import {testData} from "./testData";
 import DataTable from "../components/DataTable";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
     text2: {
         margin: "10px 0px 20px 0px",
-        width: "800px"
+        width: "1000px"
     }
 }));
     

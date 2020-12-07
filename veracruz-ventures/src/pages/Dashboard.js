@@ -25,13 +25,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const options = {
-    filterType: 'checkbox',
-    selectableRows: 'none',
-    print: 'false',
-    tableBodyHeight: '20%',
-    tableBodyMaxHeight: '20%',
-};
+// const options = {
+//     filterType: 'checkbox',
+//     selectableRows: 'none',
+//     print: 'false',
+//     tableBodyHeight: '20%',
+//     tableBodyMaxHeight: '20%',
+// };
 
 function GenerateList(props) {
     const {thisWeek, data} = props;
@@ -63,9 +63,12 @@ const Dashboard = () => {
     useEffect(() => {
         let rawData = JSON.parse( localStorage.getItem("activities") );
         let parsedData = [];
-        let weekStart = new Date('2020-12-7');
-        let weekEnd = new Date('2020-12-13');
-        
+        let today = new Date(); // today's date
+        let dayOfWeek = today.getDay() // today day of week
+        let weekStart = new Date(today.setDate(today.getDate() - (dayOfWeek - 1)));
+        let weekEnd = new Date(today.setDate(weekStart.getDate() + 6))
+
+        //alert(weekStart + "          "  + weekEnd);
         rawData.forEach(curr => {
             let taskStart = new Date(curr.startDate); 
             let taskEnd = new Date(curr.endDate);

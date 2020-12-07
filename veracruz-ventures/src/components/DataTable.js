@@ -58,11 +58,11 @@ const DataTable = () => {
     const [rows, setRows] = useState([]);
     const classes = useStyles();
     const [tabIndex, setTabIndex] = useState(0);
-    const [calendarActivities, setCalendarActivities] = useState([]);
+    //const [calendarActivities, setCalendarActivities] = useState([]);
     const [popupProps, setPopupProps] = useState({
         isOpen: false,
         onSubmit: (name, start, end, field) => {
-            if(start == '' || end == '') {
+            if(start === '' || end === '') {
                 window.alert("Please enter start and end date");
                 return;
             }
@@ -119,7 +119,7 @@ const DataTable = () => {
 
     const handleGetData = async(value) => {
         let response;
-        if (value == 1){
+        if (value === 1){
             response = await fetch("http://localhost:5000/wiseconn");
         } else {
             response = await fetch("http://localhost:5000/agworld");
