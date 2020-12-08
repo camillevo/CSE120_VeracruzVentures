@@ -96,7 +96,7 @@ const Browse = props => {
     
     
 	React.useEffect(() => {
-		if(localStorage.getItem("practices") == null) {
+		if(localStorage.getItem("practices") === null) {
             localStorage.setItem("practices", JSON.stringify(testData));
         }
         setData(JSON.parse( localStorage.getItem("practices")));

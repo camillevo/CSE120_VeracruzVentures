@@ -68,7 +68,7 @@ const Dashboard = () => {
         let weekStart = new Date(today.setDate(today.getDate() - (dayOfWeek - 1)));
         let weekEnd = new Date(today.setDate(weekStart.getDate() + 6))
 
-        //alert(weekStart + "          "  + weekEnd);
+        alert(weekStart + "          "  + weekEnd);
         rawData.forEach(curr => {
             let taskStart = new Date(curr.startDate); 
             let taskEnd = new Date(curr.endDate);

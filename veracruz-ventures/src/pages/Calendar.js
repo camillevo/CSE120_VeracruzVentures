@@ -10,7 +10,7 @@ const Calendar = () => {
 
     useEffect(() => {
         let rawData = JSON.parse( localStorage.getItem("activities") );
-        if(rawData === null) {
+        if(rawData == null) {
             setData(0);
             return;
         }
@@ -57,7 +57,7 @@ const Calendar = () => {
             Hover over each task to see field information. To add activities to your calendar, 
             go to Data Overview and click on an activity.
         </Typography>
-        {data === 0 ? 
+        {data == 0 ? 
             <h3>You must add 1 or more activities for calendar to display</h3> : 
             <GoogleGantt activities={data}/>}
             
