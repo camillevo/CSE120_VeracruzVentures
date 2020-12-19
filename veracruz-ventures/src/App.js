@@ -45,7 +45,7 @@ function App() {
         <PermanentDrawerLeft />
         <div className={classes.content}> 
           <Toolbar />
-          <Route exact path="/dashboard" component={() => <Dashboard />} />
+          <Route exact path="/" component={() => <Dashboard />} />
           <Route path="/data" exact component={() => <DataOverview />} />
           <Route exact path="/calendar" component={() => <Calendar />} />
           <Route exact path="/browse" component={Browse} />

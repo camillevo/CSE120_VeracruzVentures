@@ -19,7 +19,7 @@ const itemsList = [
     {
       text: "Dashboard",
       icon: <DashboardIcon />,
-      url: "/dashboard",
+      url: "/",
     },
     {
       text: "Data Overview",
